@@ -9,4 +9,4 @@ Each project folder keeps final deliverables at the top. Supporting instructions
 | `03-resampling` | Resampling and bootstrap | `resampling_slides.pdf`, `resampling_solution_explanation.md`, `resampling_summary.txt` |
 | `04-regularization` | Model selection and LASSO | `regularization_slides.pdf`, `regularization_results.json`, `regularization_summary.txt` |
 | `05-splines` | Splines and nonlinear modeling | `splines_slides.pdf`, `splines_results.json`, nested-CV and Monte Carlo experiments |
-| `06-trees` | CART, random forests, XGBoost, and classification ensembles | `trees_slides.pdf`, `trees_results.json`, experiment suites, and portfolio pack |
+| `06-trees` | CART, random forests, XGBoost, and classification ensembles | `trees_slides.pdf`, `trees_results.json`, experiment suites, and support notes |

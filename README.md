@@ -18,7 +18,7 @@ own while keeping supporting work inside subfolders.
 - `assignments/05-splines` - nonlinear modeling with splines, validation
   benchmarks, and Monte Carlo checks.
 - `assignments/06-trees` - tree-based modeling with CART, random forests,
-  XGBoost, classification comparisons, and portfolio-ready materials.
+  XGBoost, classification comparisons, and validation artifacts.
 
 ## Assignment 5 - Splines
 
@@ -37,7 +37,4 @@ modeling for real estate price prediction and distressed-sale probability
 estimation, including CART, random forests, XGBoost regression, XGBoost
 classification, logistic-vs-tree classifier comparisons, data-cleaning checks,
 class-imbalance experiments, calibration diagnostics, feature-importance
-outputs, and repeated/nested cross-validation artifacts. The `portfolio_pack/`
-folder condenses the project into professional materials such as resume
-bullets, interview talking points, metrics, artifact manifests, and selected
-final deliverables.
+outputs, and repeated/nested cross-validation artifacts.
