@@ -1,0 +1,5 @@
+model,task,augmentation_ratio,n_internal_knots,median_90pct_band_width,mean_90pct_band_width,max_90pct_band_width
+regression_baseline,regression,0,1,1.9933725897612433,2.17839306889446,5.939597373165462
+regression_augmented,regression,3,1,2.052398762263735,2.3394839531806797,6.34966715398614
+classification_baseline,classification,0,0,0.15485908514830998,0.1577159103835516,0.28205465613029895
+classification_augmented,classification,1,0,0.18371702777672072,0.18476467195054436,0.32142393193993407

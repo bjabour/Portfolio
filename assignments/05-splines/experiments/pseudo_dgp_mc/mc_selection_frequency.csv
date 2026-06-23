@@ -1,0 +1,11 @@
+task,augmentation_ratio,n_internal_knots,times_selected,selection_frequency
+classification,0,0,3,0.3
+classification,1,2,3,0.3
+classification,3,2,2,0.2
+classification,1,0,1,0.1
+classification,3,3,1,0.1
+regression,0,2,3,0.3
+regression,0,1,2,0.2
+regression,0,4,2,0.2
+regression,1,1,2,0.2
+regression,1,4,1,0.1

@@ -1,0 +1,11 @@
+test,passed,detail
+bootstrap_samples_have_original_size_and_duplicates,True,All 60 bootstrap samples contain 80 draws and duplicates.
+oob_is_exact_inbag_complement,True,All OOB index arrays equal the complement of unique in-bag rows.
+every_eligible_node_receives_mtry_four,True,candidate_nodes=1587
+forest_prediction_is_tree_mean,True,Direct and forest prediction arrays are exactly equal.
+oob_prediction_uses_only_excluding_trees,True,"row=31, trees=32"
+constant_target_returns_constant_and_zero_mdi,True,mdi_sum=0.0
+synthetic_signal_is_dominant,True,signal_mdi=0.850521
+mdi_is_finite_nonnegative_and_normalized,True,mdi_sum=1.0000000000000000
+fixed_seed_is_byte_deterministic,True,Predictions and MDI are byte-identical.
+checkpoint_prediction_is_cumulative_tree_mean,True,Ten-tree checkpoint exactly equals direct ten-tree mean.

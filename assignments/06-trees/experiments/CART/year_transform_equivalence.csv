@@ -1,0 +1,6 @@
+comparison,check_type,required_check,prediction_rmse,prediction_max_abs_diff,leaf_partition_match,leaf_prediction_max_abs_diff,passed,selected_depth_transformed,selected_depth_original,note
+depth_3_train,full_tree_partition_equivalence,True,0.0,0.0,True,0.0,True,,,Equivalent leaf partitions and predictions; left/right branch labels may be reversed.
+depth_3_test,full_tree_partition_equivalence,True,0.0,0.0,True,0.0,True,,,Equivalent leaf partitions and predictions; left/right branch labels may be reversed.
+cv_selected_depth_train,full_tree_partition_equivalence,True,1.503935499763765e-14,5.684341886080802e-14,True,5.684341886080802e-14,True,,,Equivalent leaf partitions and predictions; left/right branch labels may be reversed.
+cv_selected_depth_test,full_tree_partition_equivalence,True,1.503935499763765e-14,5.684341886080802e-14,True,5.684341886080802e-14,True,,,Equivalent leaf partitions and predictions; left/right branch labels may be reversed.
+official_cv_curve,held_out_boundary_sensitivity,False,26.509206866661934,46.05219398539566,,,True,6.0,6.0,The selected depth is stable. Fold MSEs can differ when a held-out year equals an unseen midpoint and <= routing is reversed by the decreasing transformation.

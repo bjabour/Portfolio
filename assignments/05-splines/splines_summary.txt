@@ -1,0 +1,14 @@
+I modeled both outcomes using a manually constructed cubic B-spline basis for temperature, with humidity and weekend included as linear covariates. The clamped knot vector uses boundary knots at 0 and 40 degrees C, repeated four times at each boundary. Internal knots are placed at quantiles of the training temperatures. The B-spline basis is computed from scratch using the Cox-de Boor recursion.
+
+The design matrix is [B1(T), ..., BJ(T), humidity, weekend]. I did not add an intercept because the B-spline columns sum to one, so an intercept would create exact collinearity.
+
+For consumption_kwh, I fit ordinary least squares using np.linalg.lstsq. For high_demand_alert, I fit logistic regression with fit_intercept=False on the same type of hand-built design matrix. Test probabilities are converted to classes using a threshold of 0.5.
+
+The number of internal knots is selected separately for each task using manually implemented 5-fold cross-validation. Regression models are compared by validation MSE, while classification models are compared by validation log loss, with Brier score used as an additional probability diagnostic.
+
+To assess stability, I resampled complete training rows with replacement, refit the selected models, and compared their fitted temperature curves across 200 bootstrap samples.
+
+The final JSON contains test predictions in the original test-row order:
+- pred_consumption_kwh
+- pred_high_demand_prob
+- pred_high_demand_class

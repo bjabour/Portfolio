@@ -1,0 +1,17 @@
+metric,value
+test_prediction_rmse,1.1354464024542596e-13
+test_prediction_max_abs_diff,2.2737367544323206e-13
+train_prediction_rmse,1.1126896573647061e-13
+matching_test_rows,200
+depth_match,True
+node_count_match,True
+leaf_count_match,True
+leaf_partition_match,True
+leaf_prediction_max_abs_diff,2.2737367544323206e-13
+all_node_features_match,True
+all_node_types_match,True
+all_node_sample_counts_match,True
+maximum_node_threshold_difference,0.0
+maximum_node_prediction_difference,2.2737367544323206e-13
+root_feature,OverallQual
+root_threshold,6.5

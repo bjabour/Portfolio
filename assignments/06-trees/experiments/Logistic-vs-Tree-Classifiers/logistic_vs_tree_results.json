@@ -1,0 +1,245 @@
+{
+  "recommended_logistic_model": "raw_l2",
+  "recommended_reason": "Simpler than spline logistic with a negligible log-loss difference relative to repeat variability",
+  "selected_final_C": 0.31622776601683794,
+  "full_oof_logistic_weight_for_rf_blend": 0.53,
+  "summary": [
+    {
+      "model": "blend_raw_l2_rf",
+      "mean_log_loss": 0.3627182953583608,
+      "sd_repeat_log_loss": 0.004003894708368587,
+      "mean_brier_score": 0.11065557612943049,
+      "mean_roc_auc": 0.7608345247105653,
+      "mean_probability": 0.15833591891780638,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0016345831698887832,
+      "absolute_prevalence_bias": 0.0016692522511397023
+    },
+    {
+      "model": "spline_degree2_l2",
+      "mean_log_loss": 0.36871265302569034,
+      "sd_repeat_log_loss": 0.005672195857572811,
+      "mean_brier_score": 0.11130950878651973,
+      "mean_roc_auc": 0.7384506489501864,
+      "mean_probability": 0.1539436567274254,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0023156642620303057,
+      "absolute_prevalence_bias": 0.0027230099392412666
+    },
+    {
+      "model": "raw_l2",
+      "mean_log_loss": 0.3695790541948221,
+      "sd_repeat_log_loss": 0.0021517969717647174,
+      "mean_brier_score": 0.11264705182682444,
+      "mean_roc_auc": 0.7396420261822666,
+      "mean_probability": 0.15609192761764257,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0008784674351482633,
+      "absolute_prevalence_bias": 0.0005747390490241089
+    },
+    {
+      "model": "spline_degree3_l2",
+      "mean_log_loss": 0.37016598846664905,
+      "sd_repeat_log_loss": 0.00591222753447459,
+      "mean_brier_score": 0.1117969784924207,
+      "mean_roc_auc": 0.7384226165447257,
+      "mean_probability": 0.15383618106642413,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0024136567837826314,
+      "absolute_prevalence_bias": 0.002830485600242544
+    },
+    {
+      "model": "random_forest",
+      "mean_log_loss": 0.3704607304715479,
+      "sd_repeat_log_loss": 0.009997967696525787,
+      "mean_brier_score": 0.1133371278200952,
+      "mean_roc_auc": 0.7499719675945392,
+      "mean_probability": 0.16070908911346846,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.004081653220219579,
+      "absolute_prevalence_bias": 0.00404242244680178
+    },
+    {
+      "model": "quadratic_l2",
+      "mean_log_loss": 0.3706905323872903,
+      "sd_repeat_log_loss": 0.005353970643685287,
+      "mean_brier_score": 0.11305881641180476,
+      "mean_roc_auc": 0.7375956605836347,
+      "mean_probability": 0.15714003910153873,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.002185749362478227,
+      "absolute_prevalence_bias": 0.0004733724348720547
+    },
+    {
+      "model": "domain_log_l2",
+      "mean_log_loss": 0.37491394470729494,
+      "sd_repeat_log_loss": 0.008313771124937355,
+      "mean_brier_score": 0.11296824088242075,
+      "mean_roc_auc": 0.7274058811986657,
+      "mean_probability": 0.15592078817241647,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0033940828490635028,
+      "absolute_prevalence_bias": 0.0007458784942502017
+    },
+    {
+      "model": "raw_l1",
+      "mean_log_loss": 0.38003927937422666,
+      "sd_repeat_log_loss": 0.005442678321372,
+      "mean_brier_score": 0.11569315032049117,
+      "mean_roc_auc": 0.7204958932526,
+      "mean_probability": 0.16476253498766052,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.0022219641202448465,
+      "absolute_prevalence_bias": 0.008095868320993849
+    },
+    {
+      "model": "xgboost",
+      "mean_log_loss": 0.38167013912855613,
+      "sd_repeat_log_loss": 0.008593784589325219,
+      "mean_brier_score": 0.11679160877486704,
+      "mean_roc_auc": 0.7391514590867042,
+      "mean_probability": 0.15562012434555028,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.003508397867206712,
+      "absolute_prevalence_bias": 0.0010465423211163949
+    },
+    {
+      "model": "ordinal_onehot_l2",
+      "mean_log_loss": 0.38970068645082706,
+      "sd_repeat_log_loss": 0.006580888547352125,
+      "mean_brier_score": 0.1206224912573483,
+      "mean_roc_auc": 0.733516945589101,
+      "mean_probability": 0.15489120202547102,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.00268663649918972,
+      "absolute_prevalence_bias": 0.0017754646411956565
+    },
+    {
+      "model": "constant_prevalence",
+      "mean_log_loss": 0.43424312276845806,
+      "sd_repeat_log_loss": 5.551115123125783e-17,
+      "mean_brier_score": 0.13215972222222225,
+      "mean_roc_auc": 0.48486250105121526,
+      "mean_probability": 0.15666666666666668,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 2.2662332591841976e-17,
+      "absolute_prevalence_bias": 0.0
+    },
+    {
+      "model": "balanced_logistic",
+      "mean_log_loss": 0.5501587143596994,
+      "sd_repeat_log_loss": 0.01183422725522807,
+      "mean_brier_score": 0.18803757137213672,
+      "mean_roc_auc": 0.7542188770218372,
+      "mean_probability": 0.38725780233299734,
+      "observed_prevalence": 0.15666666666666668,
+      "n_repeats": 6,
+      "se_repeat_log_loss": 0.004831303045907714,
+      "absolute_prevalence_bias": 0.23059113566633066
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "reference_model": "raw_l2",
+      "comparison_model": "spline_degree2_l2",
+      "mean_comparison_minus_reference_log_loss": -0.0008664011691318178,
+      "bootstrap_95_low": -0.005735157054618144,
+      "bootstrap_95_high": 0.0041094788759116945,
+      "reference_wins_out_of_repeats": 2,
+      "n_repeats": 6
+    },
+    {
+      "reference_model": "raw_l2",
+      "comparison_model": "random_forest",
+      "mean_comparison_minus_reference_log_loss": 0.0008816762767257791,
+      "bootstrap_95_low": -0.007576323074099778,
+      "bootstrap_95_high": 0.008500320770897954,
+      "reference_wins_out_of_repeats": 4,
+      "n_repeats": 6
+    },
+    {
+      "reference_model": "raw_l2",
+      "comparison_model": "xgboost",
+      "mean_comparison_minus_reference_log_loss": 0.012091084933734017,
+      "bootstrap_95_low": 0.005386597725395588,
+      "bootstrap_95_high": 0.019530151750440358,
+      "reference_wins_out_of_repeats": 5,
+      "n_repeats": 6
+    }
+  ],
+  "blend_repeat_weights": [
+    {
+      "held_out_seed": 0,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.5,
+      "training_log_loss": 0.3616932095898328,
+      "held_out_log_loss": 0.36558931804190603
+    },
+    {
+      "held_out_seed": 42,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.52,
+      "training_log_loss": 0.3613409510143072,
+      "held_out_log_loss": 0.3672325859768972
+    },
+    {
+      "held_out_seed": 2026,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.48,
+      "training_log_loss": 0.3621088739898552,
+      "held_out_log_loss": 0.36376206597057975
+    },
+    {
+      "held_out_seed": 9618,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.58,
+      "training_log_loss": 0.36327849384164196,
+      "held_out_log_loss": 0.3579964341905413
+    },
+    {
+      "held_out_seed": 19618,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.5700000000000001,
+      "training_log_loss": 0.36332519895104604,
+      "held_out_log_loss": 0.3576030055126643
+    },
+    {
+      "held_out_seed": 31415,
+      "first_model": "raw_l2",
+      "second_model": "random_forest",
+      "weight_on_first_model": 0.51,
+      "training_log_loss": 0.3619706652964452,
+      "held_out_log_loss": 0.36412636245757646
+    }
+  ],
+  "experiment_settings": {
+    "outer_cv_seeds": [
+      0,
+      42,
+      2026,
+      9618,
+      19618,
+      31415
+    ],
+    "outer_folds": 5,
+    "inner_folds": 5,
+    "selection_metric": "log_loss",
+    "class_weight": null
+  }
+}

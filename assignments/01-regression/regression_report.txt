@@ -1,0 +1,174 @@
+======================================================================
+  GRADING REPORT
+  Assignment 1 — Regression — Linear Regression
+  Student:
+  Generated: 2026-05-03 03:48
+======================================================================
+
+1. SUBMISSION
+----------------------------------------------------------------------
+   All required files submitted successfully:
+   - Results CSV: OK
+   - Code File: OK
+   - Slides (PDF): OK
+   - Slides Code (generates the PDF): OK
+   - Analysis Summary (free text, max 300 words): OK
+
+2. YOUR PERSONALIZED DATA GENERATION PROCESS
+----------------------------------------------------------------------
+   The true model used to generate your data is revealed below
+   so you can compare your submitted model to it and understand
+   how your score was calculated.
+
+   Training observations: 200
+   Test observations:     100
+   Predictors:            5
+   True model: y = beta0 + beta1*x1 + beta2*x2 + ... + noise
+   Intercept (beta0): 1.4720
+   beta_x1:            0.8631
+   beta_x2:            0.0000
+   beta_x3:            -1.3047
+   beta_x4:            0.0000
+   beta_x5:            0.5519
+   Noise std (sigma):    0.9475
+
+3. ASSIGNMENT ASSESSMENT
+----------------------------------------------------------------------
+
+3.1 PERFORMANCE OF YOUR INFERENCE/PREDICTIONS (weight 70%)
+    ----------------------------------------------------------
+
+   Scoring method: Negative Log-Likelihood (NLL)
+   For each test observation i:
+     NLL_i = 0.5 * log(2*pi*sigma_i^2) + (y_i - mu_i)^2 / (2*sigma_i^2)
+   where mu_i = your predicted_mean, sigma_i = your predicted_sd,
+   y_i = true test value.
+   Your loss = average NLL over all test observations.
+
+   Grade mapping:
+     grade = 100 * (NLL_null - NLL_yours) / (NLL_null - NLL_oracle)
+     clamped to [0, 100]
+   Ceiling: if your predictions closely match the true active
+   predictors (R² >= 0.98 vs oracle predictions), the ceiling
+   is 90 — otherwise 95. Scores at or above the ceiling are
+   rounded up to 100 to account for irreducible estimation
+   error from finite sample size.
+   where:
+     NLL_oracle = the best possible NLL, achieved by a model that knows
+                  the true coefficients and the true noise level.
+     NLL_null   = the NLL of a naive model that simply predicts the
+                  training mean (y_bar) with sd = sd(y_train) for every
+                  test observation (i.e., ignores all predictors).
+   A score of 100 means you matched the oracle; 0 means you did no
+   better than ignoring the predictors entirely.
+
+   Your NLL:          1.4165
+   Oracle NLL:        1.365
+   Null model NLL:    2.2588
+   Your RMSE:         0.9964
+   Your mean pred_sd: 0.9635
+   True sigma:        0.9475
+
+   Correct model detected (R² = 0.9889) → ceiling = 90
+   Performance score: 100 * (2.2588 - 1.4165) / (2.2588 - 1.365) = 100.0/100
+
+3.2 REVIEW OF YOUR PRESENTATION (weight 20%)
+    ----------------------------------------------------------
+
+   Slides code: regression_slides_code.py
+
+   Your slides-generating code was parsed for the items below.
+   Detection is automated and deterministic (no LLM).
+
+   MANDATORY ITEMS (all-or-nothing = 60 pts):
+   All 7 must be present to earn 60 pts. If any is missing → 0 pts.
+
+     [YES] Three slides titled 'Data', 'Model, Method and Results', and 'Visualization'
+     [YES] Sample size of train and test sets stated
+     [YES] Summary statistics for predictors and response
+     [YES] Histograms of predictors and/or response
+     [YES] Model formula written with estimated quantities
+     [YES] Exact library/package used for the analysis stated
+     [YES] Model assumptions stated explicitly
+
+   Mandatory: ALL PRESENT → 60/60 pts
+
+   OPTIONAL ITEMS (10 pts each, max 4 counted = 40 pts):
+   The system detected 8 item(s) in your code (first 4 scored).
+
+     [                   YES  +10pts]  Correlation analysis (e.g. heatmap, bar chart of correlations)
+     [                   YES  +10pts]  Scatter plots (response vs predictors, or feature pairs)
+                                   [—]  Box plots (comparing groups or showing distributions)
+                                   [—]  ANOVA table with F-test
+     [                   YES  +10pts]  Estimated coefficients with t-test and p-values
+     [                   YES  +10pts]  Log-likelihood or NLL of predictions reported
+     [YES  (not scored, max reached)]  QQ plot of residuals
+     [YES  (not scored, max reached)]  Residual plot (residuals vs fitted values)
+     [YES  (not scored, max reached)]  Predicted vs actual plot
+                                   [—]  Confusion matrix
+                                   [—]  ROC curve or AUC reported
+                                   [—]  Decision boundary plot
+                                   [—]  Precision-recall curve or table
+     [YES  (not scored, max reached)]  Variable selection performed (e.g. backward elimination, stepwise, LASSO)
+                                   [—]  Variable importance or coefficient path plot
+                                   [—]  Cross-validation error curve (e.g. lambda vs CV error)
+                                   [—]  Regularization path (coefficients vs penalty)
+                                   [—]  Bootstrap distribution of the statistic
+                                   [—]  Confidence interval visualization
+                                   [—]  Decision tree visualization
+                                   [—]  Feature importance (bar chart or similar)
+                                   [—]  Cluster visualization (scatter colored by cluster)
+                                   [—]  Elbow plot, silhouette plot, or BIC for model selection
+                                   [—]  Dendrogram (hierarchical clustering)
+
+   Optional: 4 x 10 = 40/40 pts
+
+   Slides score: 60 + 40 = 100/100
+
+3.3 CODE REVIEW (weight 10%)
+    ----------------------------------------------------------
+
+   Code review not yet available (pending review).
+
+3.4 AI FEEDBACK (on your analysis summary)
+    ----------------------------------------------------------
+
+   Note: This feedback was generated by an AI assistant (LLM).
+   It may contain inaccuracies. Use it as a learning aid, not
+   as a definitive assessment. Your grade is determined solely
+   by the deterministic scoring above.
+
+   Your summary demonstrates a solid grasp of the variable selection
+   process. You correctly identified x1, x3, and x5 as the active
+   predictors — matching the true model exactly — and your approach
+   of starting with a full model and pruning non-significant terms
+   is sound and well-articulated. Using multiple criteria (adjusted
+   R-squared, AIC, BIC) for model comparison shows good statistical
+   judgment rather than relying on a single metric.
+   Your performance score reflects this careful work: your
+   predictions are very close to optimal. One area to strengthen in
+   future assignments is discussing model assumptions — your summary
+   focuses on variable selection but doesn't mention whether you
+   checked residual normality, homoscedasticity, or linearity, even
+   though your slides code shows you did generate diagnostic plots.
+   Connecting those checks to your modeling decisions in the summary
+   would make your reasoning more complete.
+   Also consider briefly discussing the magnitude and interpretation
+   of the estimated coefficients, not just which predictors survived
+   selection. This would show deeper engagement with what the model
+   is telling you about the data-generating process.
+
+4. FINAL GRADE
+----------------------------------------------------------------------
+
+   Formula: Final = 0.70 * Performance + 0.20 * Slides + 0.10 * Code
+
+   Performance:  100.0/100  x 0.70 = 70.0
+   Slides:       100/100  x 0.20 = 20.0
+   Code:         pending  x 0.10 = pending
+   ──────────────────────────────────────────
+   FINAL SCORE:  100.0/100  (preliminary — reviews pending)
+
+======================================================================
+  END OF REPORT
+======================================================================

@@ -1,0 +1,13 @@
+dataset,feature,q1,q3,iqr,lower_bound,upper_bound,outlier_count,outlier_percent
+test,GrLivArea,1130.0,1929.0,799.0,-68.5,3127.5,4,2.0
+test,LotArea,7299.5,12019.75,4720.25,219.125,19100.125,12,6.0
+test,OverallQual,5.0,7.0,2.0,2.0,10.0,1,0.5
+test,OverallCond,5.0,6.0,1.0,3.5,7.5,10,5.0
+test,YearBuilt,1954.0,2001.0,47.0,1883.5,2071.5,0,0.0
+test,YearRemodAdd,1965.0,2003.0,38.0,1908.0,2060.0,0,0.0
+test,TotalBsmtSF,768.0,1228.0,460.0,78.0,1918.0,15,7.5
+test,GarageArea,322.5,565.0,242.5,-41.25,928.75,1,0.5
+test,BedroomAbvGr,2.0,3.0,1.0,0.5,4.5,8,4.0
+test,Fireplaces,0.0,1.0,1.0,-1.5,2.5,0,0.0
+test,WoodDeckSF,0.0,180.0,180.0,-270.0,450.0,5,2.5
+test,OpenPorchSF,0.0,65.0,65.0,-97.5,162.5,9,4.5

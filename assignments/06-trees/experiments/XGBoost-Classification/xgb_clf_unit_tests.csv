@@ -1,0 +1,11 @@
+test,passed
+probability_count_200,True
+probabilities_valid,True
+training_prevalence_47_of_300,True
+importance_has_12_features,True
+importance_sums_to_one,True
+deterministic_probabilities,True
+source_hashes_unchanged,True
+original_lotarea_maximum,True
+imbalance_handling_is_nontrivial,True
+positive_estimator_count,True

@@ -1,0 +1,10 @@
+model,mean_cv_mse,sd_fold_mse,best_params,screening_note
+best_subset_min,957.3131963508773,,"{""features"": [""GrLivArea"", ""OverallQual"", ""YearBuilt"", ""TotalBsmtSF"", ""GarageArea"", ""BedroomAbvGr"", ""Fireplaces"", ""WoodDeckSF""], ""n_features"": 8}",Same folds used for subset selection and scoring; screening only
+huber,971.8296016173502,,"{""regression__alpha"": 0.1, ""regression__epsilon"": 2.0}",Same folds used for tuning and scoring; screening only
+ridge,974.1009602634392,,"{""regression__alpha"": 4.6415888336127775}",Same folds used for tuning and scoring; screening only
+pls,978.4835026607219,,"{""regression__n_components"": 4}",Same folds used for tuning and scoring; screening only
+raw_ols,982.7493741113201,159.09519508772127,{},Fixed model; official five folds
+quadratic_lasso,989.434233954388,,"{""regression__alpha"": 1.0}",Same folds used for tuning and scoring; screening only
+best_subset_1se,999.520433479581,,"{""features"": [""GrLivArea"", ""OverallQual"", ""YearBuilt"", ""TotalBsmtSF"", ""GarageArea""], ""n_features"": 5}",Same folds used for subset selection and scoring; screening only
+additive_spline_ridge,1037.6772343143489,,"{""regression__alpha"": 1.0, ""spline__degree"": 2, ""spline__n_knots"": 3}",Same folds used for tuning and scoring; screening only
+domain_log_ols,1480.695026923186,90.20562992614083,{},Fixed model; official five folds

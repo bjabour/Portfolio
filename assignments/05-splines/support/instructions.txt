@@ -1,0 +1,141 @@
+===========================================================
+BEYOND LINEARITY: ELECTRICITY DEMAND WITH B-SPLINES
+===========================================================
+
+You are a data scientist at a smart-energy company. You are given a historical record of INDEPENDENT days (the rows are not a time series - they are an unordered sample) and you must (a) predict the daily household electricity consumption from each day's weather and calendar features, and (b) flag whether a day exceeds a critical HIGH-DEMAND operational level. Accurate consumption predictions help the company reserve the right amount of power: underpredicting forces expensive emergency purchases, overpredicting wastes resources.
+
+Historical data show demand is NOT linear in temperature: both very cold and very hot days drive consumption up, while mild days are cheap. Humidity and weekends also matter. A straight-line model is too rigid - you will model the temperature effect with CUBIC B-SPLINE basis functions that you implement yourself.
+
+STEPS:
+1. Download the training data (splines_train) and test data (splines_test).
+The training set contains the features and BOTH outcomes:
+consumption_kwh and high_demand_alert. The test set has the
+features only (outcomes are hidden for grading).
+2. Build a cubic B-spline basis of temperature yourself and fit
+the two models below.
+3. For each test row, produce predictions for BOTH tasks.
+4. Upload your single results JSON, code, slides PDF, slides code,
+and analysis summary.
+
+===========================================================
+TASK 1 - REGRESSION: predict consumption_kwh
+===========================================================
+
+Fit the additive model
+Y_i = sum_k beta_k B_k(T_i) + beta_H H_i + beta_W W_i + eps_i
+where T=temperature, H=humidity, W=weekend, and B_k are cubic B-spline basis functions of temperature that YOU construct.
+
+You must implement the B-spline basis, the design matrix, and OLS
+yourself. Choose the number of internal knots with a sensible
+method (cross-validation is recommended).
+
+IMPORTANT - no separate intercept term:
+The formula has no beta_0. A clamped cubic B-spline basis already
+sums to 1 at every T (partition of unity), so the beta_k
+coefficients absorb the level of the curve. Do NOT add an extra
+column of 1's to your design matrix - that would create exact
+collinearity (the column of 1's equals the sum of the basis
+columns) and make the system rank-deficient. The design matrix
+is exactly [B_1(T), ..., B_K(T), H, W].
+
+BOUNDARY KNOTS:
+Temperatures lie in the physical sensor range 0-40 deg C. Using
+these values as the boundary of a clamped knot vector - rather
+than the training-data min/max - keeps the basis well-defined at
+test points near the extremes. Using data min/max can cause the
+basis to collapse to zero on test rows that fall slightly outside
+the observed training range.
+
+===========================================================
+TASK 2 - CLASSIFICATION: predict high_demand_alert
+===========================================================
+
+Fit the logistic model
+P(C_i=1) = sigma( sum_k beta_k B_k(T_i) + beta_H H_i + beta_W W_i )
+where sigma(z) = 1/(1+exp(-z)).
+
+Build the B-spline design matrix yourself (same as Task 1). For the
+logistic FIT ONLY you MAY use a standard library (see Allowed below).
+Produce test-set predicted probabilities and predicted classes at
+threshold 0.5.
+
+===========================================================
+FORBIDDEN vs ALLOWED FUNCTIONS
+===========================================================
+
+FORBIDDEN (basis construction and spline fitting must be from
+scratch - using any of these may flag your code and put performance
+at risk):
+Python: sklearn.preprocessing.SplineTransformer, patsy.dmatrix,
+scipy.interpolate.BSpline, scipy.interpolate.make_interp_spline,
+statsmodels.gam, pygam, and any other spline-basis or
+spline-model function.
+R: splines::bs, splines::ns, bs(), ns(), smooth.spline, gam,
+mgcv::gam, and any other direct spline-basis/spline-model
+function.
+Also FORBIDDEN: library cross-validation helpers
+(sklearn cross_val_score / GridSearchCV / KFold scoring,
+R caret/cv.* helpers) - implement CV yourself.
+
+ALLOWED:
+- Basic linear algebra: matrix multiply, transpose, np.linalg.solve,
+np.linalg.lstsq, QR; R solve(), qr.solve().
+- For REGRESSION you implement OLS yourself (do NOT use
+sklearn.linear_model.LinearRegression or R lm()).
+- For CLASSIFICATION you MAY use a logistic regression library on
+YOUR hand-built B-spline design matrix:
+Python: sklearn.linear_model.LogisticRegression
+(fit_intercept=False; for an unpenalized fit use
+penalty=None or a very large C)
+R: glm(..., family = binomial) with '- 1' to drop the intercept.
+You do NOT need to code the logistic optimizer from scratch.
+
+===========================================================
+SUBMISSION FORMAT
+===========================================================
+
+Upload a SINGLE JSON file: splines_results_{student_id}.json with three
+equal-length arrays (one entry per test row, in test-file order):
+{
+"pred_consumption_kwh": [y1, y2, ..., y_ntest],
+"pred_high_demand_prob": [p1, p2, ..., p_ntest],
+"pred_high_demand_class": [c1, c2, ..., c_ntest]
+}
+Probabilities must lie in [0, 1]; classes are 0 or 1 (threshold 0.5).
+
+Also submit your code, slides PDF, slides code, and analysis summary.
+
+===========================================================
+GRADING (total = 100 points)
+===========================================================
+
+Your final score = 0.70 x Performance + 0.20 x Slides + 0.10 x Code
+
+Scoring depends only on your out-of-sample predictions, not on
+which knot locations or value of m you chose. Any modeling choice
+that produces good test predictions will score well - there is no
+oracle knot vector you need to match.
+
+PERFORMANCE (weight 70%) - two scored components:
+1. Regression test MSE (50%): your test predictions vs the hidden
+true consumption, scored on a linear scale between the null
+model (predict the training mean -> 0) and the oracle (true
+mechanism -> 100).
+2. Classification probability quality (50%): your predicted
+probabilities scored against the TRUE probabilities (a proper
+scoring rule with no label-sampling noise), between null (base
+rate -> 0) and oracle (100). Label log loss, AUC, accuracy,
+and F1 are reported as diagnostics.
+Performance scores >= 90 are rounded to 100.
+
+SLIDES (20%): submitted = 100, missing = 0. Present your data
+exploration, methodology + results (show the fitted temperature
+curve), and a visualization.
+
+CODE (10%): submitted = 100, missing = 0. Your code should run and
+reproduce your results with relative paths. Using forbidden spline
+functions may be flagged for review.
+
+AI FEEDBACK: after grading you receive brief AI feedback on your
+analysis summary. This is for learning only and does not affect your
+grade.

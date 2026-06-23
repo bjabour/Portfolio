@@ -1,0 +1,18 @@
+{
+  "max_depth": 5,
+  "min_samples_leaf": 1,
+  "max_features": 6,
+  "criterion": "log_loss",
+  "max_samples": 1.0,
+  "strategy": "random_over",
+  "sampling_ratio": 0.2,
+  "k_neighbors": null,
+  "calibration_method": "none",
+  "calibration_folds": null,
+  "n_estimators": 2000,
+  "mean_validation_log_loss": 0.3704607304715478,
+  "mean_brier_score": 0.1133371278200952,
+  "mean_roc_auc": 0.7569519970951343,
+  "mdi_rank_stability": 0.8734828390000804,
+  "declared_imbalance_method": "resampling"
+}

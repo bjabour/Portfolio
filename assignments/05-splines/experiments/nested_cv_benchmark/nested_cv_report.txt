@@ -1,0 +1,33 @@
+REPEATED NESTED CROSS-VALIDATION BENCHMARK
+
+Design: 30 repetitions x 5 outer folds, with 5-fold inner tuning.
+Spline candidates: cubic B-splines with 0-6 internal knots,
+using quantile or equally spaced knot locations.
+Baselines: null, linear, and global cubic polynomial.
+All reported scores are from real outer validation rows.
+
+REGRESSION
+- current solution mean score: 20.081580
+- nested minimum pipeline: 20.375937
+- nested one-SE pipeline: 21.354081
+- best fixed spline candidate: spline_equal_m2 (20.050903)
+- nested minimum minus current paired difference: 0.294357
+- 95% CI: [0.186120, 0.402593]
+
+CLASSIFICATION
+- current solution mean score: 0.449225
+- nested minimum pipeline: 0.456466
+- nested one-SE pipeline: 0.449225
+- best fixed spline candidate: spline_quantile_m0 (0.449225)
+- nested minimum minus current paired difference: 0.007242
+- 95% CI: [0.003755, 0.010728]
+
+SELECTION STABILITY
+The full selection-frequency table is stored in
+nested_selection_frequency.csv.
+
+Decision rule:
+Change the submitted model only if a nested pipeline has a
+paired outer-fold improvement whose 95% confidence interval
+is entirely below zero. Otherwise retain the current simpler
+solution because the observed difference is not convincing.

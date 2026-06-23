@@ -1,0 +1,4 @@
+reference_model,comparison_model,mean_comparison_minus_reference_log_loss,bootstrap_95_low,bootstrap_95_high,reference_wins_out_of_repeats,n_repeats
+raw_l2,spline_degree2_l2,-0.0008664011691318178,-0.005735157054618144,0.0041094788759116945,2,6
+raw_l2,random_forest,0.0008816762767257791,-0.007576323074099778,0.008500320770897954,4,6
+raw_l2,xgboost,0.012091084933734017,0.005386597725395588,0.019530151750440358,5,6

@@ -1,0 +1,22 @@
+{
+  "max_depth": 3,
+  "learning_rate": 0.03,
+  "min_child_weight": 3.0,
+  "gamma": 0.1,
+  "subsample": 0.85,
+  "colsample_bytree": 0.85,
+  "reg_lambda": 1.0,
+  "reg_alpha": 0.1,
+  "n_estimators": 122,
+  "imbalance_strategy": "scale_pos_weight",
+  "scale_pos_weight": 1.5,
+  "max_delta_step": 0.0,
+  "sampling_ratio": null,
+  "k_neighbors": null,
+  "calibration_method": "sigmoid",
+  "calibration_folds": 8,
+  "mean_validation_log_loss": 0.3816701391285562,
+  "mean_brier_score": 0.11679160877486704,
+  "mean_roc_auc": 0.7482218591140161,
+  "mdi_rank_stability": 0.8260911502290813
+}

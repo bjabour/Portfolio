@@ -1,0 +1,18 @@
+Intercept test for chosen logistic model
+=======================================
+
+Chosen terms: x1 + x2 + x3 + x1^2 + x2*x3
+
+Single validation split:
+         model   validation  log_loss    auc  accuracy     f1  aic_train_fit
+  no_intercept single_split    0.5063 0.8258    0.7333 0.7333       234.8772
+with_intercept single_split    0.5079 0.8229    0.7222 0.7191       236.8416
+
+Repeated 5-fold CV x 10 repeats:
+         model  log_loss_mean  log_loss_sd  auc_mean  accuracy_mean  f1_mean
+  no_intercept         0.5392       0.0510    0.8048         0.7143   0.6995
+with_intercept         0.5416       0.0521    0.8038         0.7160   0.7030
+
+Full-data fit:
+with intercept:    AIC=324.9898, intercept=0.0424, p=0.8021
+without intercept: AIC=323.0526

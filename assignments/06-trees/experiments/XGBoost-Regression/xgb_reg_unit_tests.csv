@@ -1,0 +1,9 @@
+test,passed
+prediction_count_200,True
+predictions_finite,True
+importance_has_12_features,True
+importance_sums_to_one,True
+deterministic_predictions,True
+source_hashes_unchanged,True
+original_lotarea_maximum,True
+original_year_columns,True

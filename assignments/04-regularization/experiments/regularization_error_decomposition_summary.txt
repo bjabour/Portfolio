@@ -1,0 +1,50 @@
+regularization MONTE CARLO ERROR-DECOMPOSITION EXPERIMENT
+
+Important limitation:
+The experiment now uses the exact oracle intercept, active variables, coefficients,
+and noise level. The hidden predictor-generation mechanism is still unavailable,
+so predictor means and covariance are estimated from the observed training data.
+It is therefore exact for the conditional response model but semi-parametric for X.
+
+Simulations: 50; train n=150; large test n=5000
+Exact oracle active coefficients: x1=1.827, x8=1.095, x12=-2.384, x15=-0.749, x20=-2.392, x24=1.190, x31=1.839, x34=2.481
+Reported SNR: 3.7300
+SNR implied by exact betas and empirical X covariance: 3.7539
+
+Average test MSE (Monte Carlo mean +/- simulation SE):
+  True conditional mean (irreducible noise)        8.2941 +/- 0.0232
+  Known-support OLS                                8.8409 +/- 0.0356
+  Ridge, best test-set lambda diagnostic          10.4624 +/- 0.0803
+  Ridge, submitted single 5-fold CV style         10.6288 +/- 0.0914
+  Ridge, repeated 5-fold CV                       10.6061 +/- 0.0883
+  Ridge, fixed reported population lambda         10.5174 +/- 0.0807
+  Lasso, best test-set alpha diagnostic            9.5743 +/- 0.0670
+  Lasso, submitted LassoCV style                   9.6524 +/- 0.0710
+  Lasso, alpha.1se rule                           10.5633 +/- 0.0991
+  Lasso, fold-scaled strict CV                     9.6614 +/- 0.0699
+  Lasso, strict fold-scaled alpha.1se             10.5147 +/- 0.1099
+
+Approximate gap decomposition:
+  Ridge irreducible noise:                 8.2941
+  Finite-sample cost with true support:    0.5468
+  Ridge unknown-support/model-family cost: 1.6215
+  Ridge single-CV tuning cost:             0.1664
+  Lasso irreducible noise:                 8.2941
+  Finite-sample cost with true support:    0.5468
+  Lasso unknown-support/model-family cost: 0.7334
+  Lasso current-CV tuning/preprocess cost: 0.0781
+  Lasso alpha.1se tuning/sparsity cost:    0.9890
+
+Average variable selection across simulations:
+  alpha.min: TP=7.90, FP=10.38, FN=0.10, nonzero=18.28
+  alpha.1se: TP=7.58, FP=4.72, FN=0.42, nonzero=12.30
+
+Observed training-data comparison:
+  alpha.min=0.211718: TP=8, FP=9, FN=0, nonzero=17
+  alpha.1se=0.425390: TP=7, FP=8, FN=1, nonzero=15
+
+Interpretation:
+The oracle-tuned model rows are deliberately optimistic and cannot be used in
+practice; they isolate the part of excess error that remains even if tuning were
+perfect. The difference between the current-CV row and its oracle-tuned row is
+the estimated tuning/testing contribution under this calibrated pseudo-DGP.

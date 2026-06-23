@@ -1,0 +1,2 @@
+smote_ratio,k_neighbors,mean_fold_log_loss,sd_fold_log_loss,mean_fold_auc,sd_fold_auc,ensemble_oof_log_loss,ensemble_oof_brier_score,ensemble_oof_auc,ensemble_oof_precision,ensemble_oof_recall,ensemble_mean_probability,observed_prevalence
+0.7,10,1.658622866702485,1.0076968229045606,0.6645367320261438,0.09504286167887264,0.5498180108356568,0.14440063321371543,0.7173492557396349,0.37254901960784315,0.40425531914893614,0.2730514105994427,0.15666666666666668

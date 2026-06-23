@@ -1,0 +1,15 @@
+{
+  "max_depth": 1,
+  "learning_rate": 0.05,
+  "min_child_weight": 1,
+  "gamma": 0.1,
+  "subsample": 0.85,
+  "colsample_bytree": 0.85,
+  "reg_lambda": 1.0,
+  "reg_alpha": 1.0,
+  "n_estimators": 386,
+  "candidate_id": 22,
+  "mean_validation_mse": 1362.6972295540788,
+  "validation_rmse": 36.91472916809872,
+  "mdi_rank_stability": 0.9332336886638678
+}

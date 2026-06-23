@@ -1,0 +1,16 @@
+node_id,scratch_exists,sklearn_exists,scratch_is_leaf,sklearn_is_leaf,scratch_feature_index,sklearn_feature_index,scratch_threshold,sklearn_threshold,scratch_prediction,sklearn_prediction,scratch_n_samples,sklearn_n_samples,feature_match,leaf_match,threshold_abs_diff,prediction_abs_diff,sample_count_match
+0,True,True,False,False,2.0,2.0,6.5,6.5,356.30992,356.30992000000003,300,300,True,True,0.0,5.684341886080802e-14,True
+1,True,True,False,False,0.0,0.0,1112.0,1112.0,294.4465405405405,294.44654054054064,185,185,True,True,0.0,1.1368683772161603e-13,True
+2,True,True,False,False,4.0,4.0,61.5,61.5,242.3091515151515,242.3091515151515,66,66,True,True,0.0,0.0,True
+3,True,True,True,True,,,,,264.93110416666667,264.93110416666667,48,48,True,True,,0.0,True
+4,True,True,True,True,,,,,181.98394444444443,181.9839444444444,18,18,True,True,,2.842170943040401e-14,True
+5,True,True,False,False,7.0,7.0,401.0,401.0,323.3630756302521,323.36307563025207,119,119,True,True,0.0,5.684341886080802e-14,True
+6,True,True,True,True,,,,,285.28868181818183,285.2886818181819,44,44,True,True,,5.684341886080802e-14,True
+7,True,True,True,True,,,,,345.70005333333336,345.70005333333324,75,75,True,True,,1.1368683772161603e-13,True
+8,True,True,False,False,2.0,2.0,7.5,7.5,455.82926956521743,455.82926956521726,115,115,True,True,0.0,1.7053025658242404e-13,True
+9,True,True,False,False,6.0,6.0,837.5,837.5,413.44475409836065,413.44475409836065,61,61,True,True,0.0,0.0,True
+10,True,True,True,True,,,,,355.8015,355.8015,14,14,True,True,,0.0,True
+11,True,True,True,True,,,,,430.6150851063829,430.6150851063831,47,47,True,True,,2.2737367544323206e-13,True
+12,True,True,False,False,0.0,0.0,2771.5,2771.5,503.70807407407415,503.7080740740741,54,54,True,True,0.0,5.684341886080802e-14,True
+13,True,True,True,True,,,,,488.30132653061224,488.3013265306122,49,49,True,True,,5.684341886080802e-14,True
+14,True,True,True,True,,,,,654.6942,654.6942,5,5,True,True,,0.0,True

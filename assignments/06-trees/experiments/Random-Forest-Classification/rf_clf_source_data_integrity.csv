@@ -1,0 +1,3 @@
+file,path,sha256,bytes
+trees_train.csv,C:\EDU\StatisticalLearning\assignments\6\trees_train.csv,85a5ad0b994e5b4202bd22a7e8b7d8d35a00338d64d85312544b65921cf8a242,19348
+trees_test.csv,C:\EDU\StatisticalLearning\assignments\6\trees_test.csv,45aa6f83073380302b8a7a7554bc13beb2774d07d34cdb3dfd30d0ef666b6580,10967

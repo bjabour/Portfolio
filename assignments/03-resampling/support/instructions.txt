@@ -1,0 +1,58 @@
+═══════════════════════════════════════════════════════
+PORTFOLIO ALLOCATION WITH BOOTSTRAP
+═══════════════════════════════════════════════════════
+
+You are given a dataset (resampling_data) with 100 daily return pairs for two assets (asset1_return, asset2_return).
+
+The minimum-variance portfolio allocates a fraction α to Asset 1 and (1 − α) to Asset 2, where:
+α = (σ²_Y − σ_XY) / (σ²_X + σ²_Y − 2·σ_XY)
+
+Your tasks:
+1. Estimate α̂ from the data (plug-in estimate using sample variances and covariance).
+2. Use nonparametric bootstrap (B ≥ 1000 resamples) to construct a 95% confidence interval for α. For each bootstrap sample, resample the ROWS (paired returns) with replacement and recompute α.
+3. Use the percentile method for the confidence interval.
+4. Save results to resampling_bootstrap_{student_id}.csv with columns:
+alpha_hat, ci_lower, ci_upper (exactly one row)
+
+═══════════════════════════════════════════════════════
+IMPORTANT: IMPLEMENT BOOTSTRAP FROM SCRATCH
+═══════════════════════════════════════════════════════
+
+The bootstrap is a Monte Carlo simulation that samples from the empirical distribution function (EDF). The EDF assigns probability 1/n to each observed data point. Sampling from the EDF therefore means picking one of the n observations with equal probability — this is sampling with replacement.
+
+You MUST implement this resampling step yourself. Do NOT use library functions such as:
+Python: np.random.choice(), random.choice(), random.sample(), sklearn.utils.resample()
+R: sample(), boot(), bootstrap()
+
+Instead, implement EDF sampling explicitly:
+1. Generate uniform random numbers U ~ Uniform(0, 1)
+2. Convert each U to a random index in {0, ..., n-1} using
+index = floor(n * U). This produces a uniform random index
+because P(floor(nU) = k) = 1/n for each k.
+3. Use these indices to select the resampled rows (paired
+returns) and compute α* for that bootstrap replicate.
+
+Your slides MUST include a plot of the EDF and the bootstrap distribution of α.
+
+Using forbidden functions will result in code score = 0.
+
+═══════════════════════════════════════════════════════
+GRADING (total = 100 points)
+═══════════════════════════════════════════════════════
+
+Your final score = 0.70 × Performance + 0.20 × Slides + 0.10 × Code
+
+A) PERFORMANCE (weight 70%)
+Interval score: a proper scoring rule that rewards narrow confidence intervals that cover the true α, and heavily penalizes intervals that miss it.
+
+B) SLIDES PRESENTATION (weight 20%)
+Mandatory (60 pts): three slides titled 'Data', 'Model, Method and Results', 'Visualization'; sample sizes; summary statistics; histograms; model formula; library used; model assumptions.
+Optional (10 pts each, max 40 pts): EDF plot, bootstrap distribution plot, confidence interval visualization, portfolio variance analysis, correlation analysis, scatter plots, and more.
+
+C) CODE REPRODUCIBILITY (weight 10%)
+Your code must run without errors and reproduce your results.
+Use relative paths (not absolute paths).
+Using forbidden resampling functions → code score = 0.
+
+D) AI FEEDBACK
+After grading, you receive brief AI-generated feedback on your analysis summary. This is for learning only and does not affect your grade.

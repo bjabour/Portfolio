@@ -1,0 +1,5 @@
+case,vectorized_feature,bruteforce_feature,vectorized_threshold,bruteforce_threshold,child_sse_abs_diff,child_sse_rel_diff,partition_match,passed
+synthetic_known_split,0,0,2.5,2.5,0.0,0.0,True,True
+real_sample_1_n60,2,2,6.5,6.5,2.3283064365386963e-09,6.755325557712733e-15,True,True
+real_sample_2_n90,4,4,30.5,30.5,1.5832483768463135e-08,3.6947186261658824e-14,True,True
+real_sample_3_n140,2,2,6.5,6.5,1.210719347000122e-08,2.005964241264728e-14,True,True

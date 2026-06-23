@@ -1,0 +1,3 @@
+model,max_depth,node_count,leaf_count,training_mse,validation_rmse
+required_depth_3_scratch,3,15,8,2106.611103151636,53.655504556486605
+cv_selected_scratch,6,65,33,906.9211433550622,47.96402501876797

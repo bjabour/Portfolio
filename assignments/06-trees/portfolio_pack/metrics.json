@@ -1,0 +1,96 @@
+{
+  "project_title": "Tree-Based Real Estate Modeling: Scratch CART, Scratch Random Forest, and XGBoost",
+  "assignment": "trees Tree-Based Methods",
+  "student_id": "",
+  "final_score": 100.0,
+  "component_scores": {
+    "performance": 100.0,
+    "slides": 100.0,
+    "code": 100.0
+  },
+  "data": {
+    "training_observations": 300,
+    "test_observations": 200,
+    "predictors": 12,
+    "distressed_training_count": 47,
+    "distressed_training_prevalence": 0.15667,
+    "active_regression_variables": [
+      "GrLivArea",
+      "OverallQual",
+      "YearBuilt",
+      "TotalBsmtSF",
+      "GarageArea"
+    ],
+    "active_classification_variables": [
+      "GrLivArea",
+      "OverallCond",
+      "YearBuilt",
+      "Fireplaces"
+    ]
+  },
+  "models": {
+    "scratch_cart_regression": {
+      "submitted_depth": 3,
+      "cv_selected_depth": 6,
+      "min_samples_leaf": 5,
+      "cv_mse": 2311.325,
+      "validation_metric": "manual shuffled five-fold MSE",
+      "notable_result": "Depth-3 scratch predictions matched permitted sklearn depth-3 predictions to numerical precision."
+    },
+    "scratch_random_forest_regression": {
+      "n_estimators": 2000,
+      "bootstrap_rows_per_tree": 300,
+      "mtry": 4,
+      "max_depth": 8,
+      "min_samples_leaf": 1,
+      "repeated_cv_mse": 1484.85,
+      "repeated_cv_rmse": 38.534,
+      "oob_mse": 1420.81,
+      "importance": "normalized equal-tree Mean Decrease in Impurity"
+    },
+    "xgboost_regression": {
+      "n_estimators": 386,
+      "learning_rate": 0.05,
+      "max_depth": 1,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85,
+      "repeated_cv_mse": 1362.697,
+      "repeated_cv_rmse": 36.915,
+      "importance": "normalized total gain"
+    },
+    "random_forest_classification": {
+      "n_estimators": 2000,
+      "max_depth": 5,
+      "mtry": 6,
+      "criterion": "log_loss",
+      "imbalance_method": "fold-local random oversampling",
+      "sampling_ratio_minority_to_majority": 0.2,
+      "mean_log_loss": 0.370461,
+      "mean_auc": 0.757,
+      "mean_brier": 0.113,
+      "importance": "normalized feature_importances_ / MDI"
+    },
+    "xgboost_classification": {
+      "n_estimators": 122,
+      "learning_rate": 0.03,
+      "max_depth": 3,
+      "scale_pos_weight": 1.5,
+      "calibration": "eight-fold out-of-fold sigmoid calibration",
+      "mean_log_loss": 0.38167,
+      "mean_auc": 0.748,
+      "mean_brier": 0.117,
+      "importance": "normalized total gain"
+    }
+  },
+  "cv_keywords": [
+    "scratch machine learning implementation",
+    "CART",
+    "random forest",
+    "XGBoost",
+    "cross-validation",
+    "probability calibration",
+    "imbalanced classification",
+    "feature importance",
+    "real estate analytics"
+  ]
+}

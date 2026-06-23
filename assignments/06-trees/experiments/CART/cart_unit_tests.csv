@@ -1,0 +1,5 @@
+test,passed,detail
+constant_target_stays_one_leaf,True,leaves=1
+repeated_values_known_threshold,True,threshold=0.5
+minimum_leaf_prevents_invalid_split,True,leaves=1
+known_optimal_split_and_predictions,True,threshold=2.5

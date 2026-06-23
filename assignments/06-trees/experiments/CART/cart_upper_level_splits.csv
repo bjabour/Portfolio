@@ -1,0 +1,15 @@
+model,node_id,depth,is_leaf,n_samples,prediction,sse,feature_transformed,feature_original,threshold,operator_transformed,threshold_original_scale,operator_original_scale,split_description_transformed,split_description_original,sse_reduction,left_node_id,right_node_id
+required_depth_3_scratch,0,0,False,300,356.30992,3368512.244520083,OverallQual,OverallQual,6.5,<=,6.5,<=,OverallQual <= 6.5,OverallQual <= 6.5,1846980.9857135303,1.0,8.0
+required_depth_3_scratch,1,1,False,185,294.4465405405405,861419.9093119446,GrLivArea,GrLivArea,1112.0,<=,1112.0,<=,GrLivArea <= 1112,GrLivArea <= 1112,278912.0382591598,2.0,5.0
+required_depth_3_scratch,2,2,False,66,242.3091515151515,207717.4793484849,years_since_built_2011,YearBuilt,61.5,<=,1949.5,>=,years_since_built_2011 <= 61.5,YearBuilt >= 1949.5,90068.48255106423,3.0,4.0
+required_depth_3_scratch,5,2,False,119,323.3630756302521,374790.3917043172,GarageArea,GarageArea,401.0,<=,401.0,<=,GarageArea <= 401,GarageArea <= 401,101205.55939098634,6.0,7.0
+required_depth_3_scratch,8,1,False,115,455.82926956521743,660111.3494946435,OverallQual,OverallQual,7.5,<=,7.5,<=,OverallQual <= 7.5,OverallQual <= 7.5,233371.79197761603,9.0,12.0
+required_depth_3_scratch,9,2,False,61,413.44475409836065,181998.7693253085,TotalBsmtSF,TotalBsmtSF,837.5,<=,837.5,<=,TotalBsmtSF <= 837.5,TotalBsmtSF <= 837.5,60374.97894815006,10.0,11.0
+required_depth_3_scratch,12,2,False,54,503.70807407407415,244740.7881916985,GrLivArea,GrLivArea,2771.5,<=,2771.5,<=,GrLivArea <= 2771.5,GrLivArea <= 2771.5,125615.07673412189,13.0,14.0
+cv_selected_scratch,0,0,False,300,356.30992,3368512.244520083,OverallQual,OverallQual,6.5,<=,6.5,<=,OverallQual <= 6.5,OverallQual <= 6.5,1846980.9857135303,1.0,42.0
+cv_selected_scratch,1,1,False,185,294.4465405405405,861419.9093119446,GrLivArea,GrLivArea,1112.0,<=,1112.0,<=,GrLivArea <= 1112,GrLivArea <= 1112,278912.0382591598,2.0,19.0
+cv_selected_scratch,2,2,False,66,242.3091515151515,207717.4793484849,years_since_built_2011,YearBuilt,61.5,<=,1949.5,>=,years_since_built_2011 <= 61.5,YearBuilt >= 1949.5,90068.48255106423,3.0,14.0
+cv_selected_scratch,19,2,False,119,323.3630756302521,374790.3917043172,GarageArea,GarageArea,401.0,<=,401.0,<=,GarageArea <= 401,GarageArea <= 401,101205.55939098634,20.0,27.0
+cv_selected_scratch,42,1,False,115,455.82926956521743,660111.3494946435,OverallQual,OverallQual,7.5,<=,7.5,<=,OverallQual <= 7.5,OverallQual <= 7.5,233371.79197761603,43.0,56.0
+cv_selected_scratch,43,2,False,61,413.44475409836065,181998.7693253085,TotalBsmtSF,TotalBsmtSF,837.5,<=,837.5,<=,TotalBsmtSF <= 837.5,TotalBsmtSF <= 837.5,60374.97894815006,44.0,47.0
+cv_selected_scratch,56,2,False,54,503.70807407407415,244740.7881916985,GrLivArea,GrLivArea,2771.5,<=,2771.5,<=,GrLivArea <= 2771.5,GrLivArea <= 2771.5,125615.07673412189,57.0,64.0

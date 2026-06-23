@@ -1,0 +1,5 @@
+task,version,augmentation_ratio,n_internal_knots,metric,mean_real_validation_score,sd_real_validation_score
+regression,unaugmented,0,1,MSE,20.169944825387248,4.342020459503505
+regression,pseudo-DGP augmented,3,1,MSE,20.39995081984815,4.3775947351939895
+classification,unaugmented,0,0,log loss,0.4483687188236825,0.07741434511150146
+classification,pseudo-DGP augmented,1,0,log loss,0.44846479113448656,0.08280841707143143

@@ -1,0 +1,158 @@
+═══════════════════════════════════════════════════════
+REGULARIZATION: RIDGE + LASSO + BOOTSTRAP STABILITY
+═══════════════════════════════════════════════════════
+
+You are given a training dataset (regularization_train) with 150 observations, 40 predictors (x1–x40), and a continuous response y. You also receive a test dataset (regularization_test) with 100 observations and 40 predictors (no y — hidden for grading), and a ridge lambda grid file.
+
+The predictors are correlated and only a subset are truly active. Your goal is to fit regularized regression models, predict on the test set, and assess the stability of lasso variable selection.
+
+═══════════════════════════════════════════════════════
+TASK 1: RIDGE REGRESSION FROM SCRATCH
+═══════════════════════════════════════════════════════
+
+Implement ridge regression entirely by yourself — no regularization or optimization libraries allowed.
+
+The ridge objective is:
+(1/n) Σ(yi − xi'β − β₀)² + λ Σβⱼ²
+
+The intercept β₀ is NOT penalized.
+
+You must implement BOTH:
+
+A) Ridge via closed-form solution:
+β̂ = (X'X/n + λI)⁻¹ X'y/n
+(after centering y and X; intercept = ȳ − X̄'β̂)
+
+B) Ridge via gradient descent:
+Explicitly code the gradient of the ridge objective:
+∇β = −(2/n) X'(y − Xβ) + 2λβ
+Iterate: β ← β − η·∇β until convergence.
+
+C) Cross-validation for ridge (from scratch):
+- Use 5-fold CV
+- Use the provided lambda grid (download regularization_lambda_grid file)
+- Fit ridge for each λ in the grid
+- Compute validation MSE for each λ
+- Select the best λ
+- Refit on the full training data
+
+IMPORTANT: Within each CV fold, standardize predictors using ONLY the fold's training data, then apply the same standardization to the fold's validation data. For the final model, standardize using the full training data.
+
+Ridge λ grid: Download the provided regularization_lambda_grid file. It contains exactly 80 lambda values (log-spaced from 10^-4 to 10^3). You MUST use this exact grid so your CV results match the grading oracle.
+
+Closed-form and gradient descent should give numerically similar results for the same λ.
+
+═══════════════════════════════════════════════════════
+TASK 2: LASSO REGRESSION USING LIBRARIES
+═══════════════════════════════════════════════════════
+
+Fit lasso using standard libraries:
+Python: sklearn.linear_model.LassoCV or Lasso
+R: glmnet::cv.glmnet with alpha=1
+
+Use the library's default alpha/lambda path (you do NOT need to use the ridge lambda grid for lasso).
+
+You must:
+- Fit lasso with cross-validation
+- Select the tuning parameter
+- Report the number of nonzero coefficients
+- Report which variables were selected (abs(coef) > 1e-8)
+- Predict on the test data
+- Compare lasso to ridge in terms of prediction and sparsity
+
+═══════════════════════════════════════════════════════
+TASK 3: BOOTSTRAP LASSO STABILITY
+═══════════════════════════════════════════════════════
+
+Assess the stability of lasso variable selection using the bootstrap.
+
+Procedure:
+1. Repeat B = 200 times:
+a. Draw a bootstrap sample (sample n=150 observations WITH replacement from the training data)
+b. Standardize predictors using the bootstrap sample's mean and SD
+c. Fit lasso with cross-validation (same library as Task 2)
+d. Record which variables have nonzero coefficients (|coef| > 1e-8)
+2. Compute selection frequency for each variable:
+freq_j = (number of bootstrap samples where x_j was selected) / B
+
+The result is a vector of 40 frequencies, each between 0 and 1.
+A frequency near 1 means the variable is almost always selected (stable), while a frequency near 0.5 means the selection is unstable.
+
+This exercise illustrates a key limitation of lasso: variable selection can be sensitive to small perturbations in the data, especially when predictors are correlated.
+
+═══════════════════════════════════════════════════════
+FORBIDDEN FUNCTIONS (for Task 1 — Ridge only)
+═══════════════════════════════════════════════════════
+
+Python: sklearn.linear_model.Ridge, RidgeCV, ElasticNet, ElasticNetCV, sklearn.model_selection.GridSearchCV, sklearn.model_selection.cross_val_score, scipy.optimize (any function), statsmodels regularized fitting.
+
+R: glmnet, cv.glmnet, lm.ridge, MASS::lm.ridge, optim, nlm, nls, any package that directly fits ridge or performs automatic CV.
+
+ALLOWED for ridge: basic matrix operations (numpy/base R), np.linalg.solve, solve() in R, matrix multiplication, loops, data I/O, plotting.
+
+NOTE: For Tasks 2 and 3 (Lasso and Bootstrap), library functions ARE allowed.
+
+═══════════════════════════════════════════════════════
+SUBMISSION FORMAT
+═══════════════════════════════════════════════════════
+
+Upload a SINGLE JSON file: regularization_results_{student_id}.json
+with the following structure:
+{
+"ridge_pred_test": [y1, y2, ..., y100],
+"ridge_gd_pred_test": [y1, y2, ..., y100],
+"ridge_lambda": 0.123,
+"ridge_cv_mse": [mse1, mse2, ..., mse80],
+"ridge_beta": [b1, b2, ..., b40],
+"ridge_gd_beta": [b1, b2, ..., b40],
+"lasso_pred_test": [y1, y2, ..., y100],
+"lasso_alpha": 0.05,
+"lasso_n_nonzero": 12,
+"lasso_selected_vars": ["x1", "x5", ...],
+"lasso_beta": [b1, b2, ..., b40],
+"bootstrap_selection_freq": [f1, f2, ..., f40]
+}
+
+Array sizes: 100 (test predictions), 80 (CV MSE, one per lambda), 40 (coefficients, betas, selection frequencies).
+
+═══════════════════════════════════════════════════════
+GRADING (detailed breakdown)
+═══════════════════════════════════════════════════════
+
+Your final score = 0.70 × Performance + 0.20 × Slides + 0.10 × Code
+
+PERFORMANCE (weight 70%) — six scored components:
+
+1. RIDGE TEST MSE (30%)
+Your ridge closed-form predictions on the test set are compared to the hidden true y values. The test MSE is scored on a linear scale between the null model (predict ȳ_train for everyone → score 0) and the oracle (best possible ridge → score 100).
+
+2. RIDGE GD vs CLOSED-FORM AGREEMENT (10%)
+Your gradient descent predictions are compared to your closed-form predictions. We measure the RMSE of the difference relative to the range of y_test. If RMSE/range < 0.001 → 100; increases to 0.05 → ~50; beyond 0.20 → 0. This checks that your GD implementation is correct and converged.
+
+3. RIDGE CV CORRECTNESS (15%)
+Two sub-components:
+a) Lambda selection (70%): How close your selected λ is to the oracle's on a log scale. Within a factor of ~1.6 → full credit; within factor 3 → partial; beyond factor 100 → 0.
+b) CV curve shape (30%): Correlation between your 80 CV-MSE values and the oracle's. Corr > 0.95 → full credit.
+
+4. LASSO TEST MSE (25%)
+Same linear scale as ridge: your lasso test MSE scored between null (0) and oracle lasso (100).
+
+5. LASSO VARIABLE SELECTION (10%)
+Three sub-components:
+a) Recall (50%): fraction of truly active variables you selected.
+b) Precision (25%): fraction of your selected variables that the oracle also selected.
+c) Jaccard similarity (25%): overlap between your selection and the oracle's.
+
+6. BOOTSTRAP LASSO STABILITY (10%)
+Your 40-element selection frequency vector is compared to the oracle's:
+a) Correlation (40%): rank-order agreement between frequency vectors.
+b) RMSE (30%): closeness of individual frequencies. RMSE < 0.05 → full credit.
+c) Active variable accuracy (30%): how well your frequencies for the truly active variables match the oracle's.
+
+Scores >= 90 are rounded to 100.
+
+SLIDES (weight 20%): Submit your slides PDF — scored by submission (submitted = 100, missing = 0). Content requirements: three slides covering data exploration, methodology + results, and visualization.
+
+CODE (weight 10%): Submit your code file — scored by submission (submitted = 100, missing = 0). Your code should be well-organized and reproduce your results. Using forbidden functions for ridge → may be flagged for review.
+
+AI FEEDBACK: After grading, you receive brief AI-generated feedback on your analysis summary. This is for learning only and does not affect your grade.
