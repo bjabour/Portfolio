@@ -4,7 +4,6 @@
 
 The following files should be present in `artifacts/`:
 
-- `trees_report.txt`: official grading report and final 100/100 score.
 - `trees_summary.txt`: final assignment summary under the 300-word limit.
 - `trees_slides.pdf`: submitted three-slide presentation.
 - `trees_code.py`: compact final solution script.
@@ -18,4 +17,4 @@ Original workspace path:
 
 ## Notes
 
-The CV project can ingest `metrics.json` directly for structured results. The PDFs and report provide supporting evidence but are not necessary for generating a short resume bullet.
+The CV project can ingest `metrics.json` directly for structured results. The slides, summary, code, and result JSON provide the supporting evidence needed for a short resume bullet.

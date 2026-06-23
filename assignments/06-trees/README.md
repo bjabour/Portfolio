@@ -6,7 +6,7 @@ Tree-based modeling project covering CART, random forests, XGBoost regression/cl
 
 - `trees_slides.pdf` - final presentation.
 - `trees_results.json` - submitted results artifact.
-- `trees_report.txt` and `trees_summary.txt` - written outputs.
+- `trees_summary.txt` - written result summary.
 - `trees_code.py` and `trees_slides_code.py` - reproducible code.
 - `trees_train.csv` and `trees_test.csv` - project data.
 

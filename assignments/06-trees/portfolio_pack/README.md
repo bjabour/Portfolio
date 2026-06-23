@@ -22,7 +22,6 @@ Built and validated five tree-based models for Ames housing price prediction and
 
 Key source artifacts are copied into `artifacts/` when this pack is prepared:
 
-- `trees_report.txt`: grading report showing final score.
 - `trees_summary.txt`: final short assignment summary.
 - `trees_slides.pdf`: submitted three-slide deck.
 - `trees_code.py`: compact final modeling script.

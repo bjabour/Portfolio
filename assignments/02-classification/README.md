@@ -6,7 +6,7 @@ Classification project with final deliverables and curated logistic-regression/m
 
 - `classification_slides.pdf` - final presentation.
 - `classification_results.csv` - submitted results file.
-- `classification_report.txt` and `classification_summary.txt` - written outputs.
+- `classification_summary.txt` - written result summary.
 - `classification_code.py` and `classification_slides_code.py` - reproducible modeling and slide-generation code.
 - `classification_train.csv` and `classification_test.csv` - project data.
 
