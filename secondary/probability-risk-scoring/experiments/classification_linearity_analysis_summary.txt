@@ -1,0 +1,22 @@
+﻿Checking whether a linear decision boundary is sufficient
+=========================================================
+
+Single validation split metrics:
+                 model  log_loss    auc  accuracy  precision  recall     f1  tn  fp  fn  tp
+          interactions    0.5196 0.8238    0.7111     0.6977  0.6977 0.6977  34  13  13  30
+quadratic_interactions    0.5197 0.8209    0.7667     0.7391  0.7907 0.7640  35  12   9  34
+                linear    0.6639 0.6724    0.5889     0.5789  0.5116 0.5432  31  16  21  22
+             quadratic    0.6757 0.6442    0.6333     0.6190  0.6047 0.6118  31  16  17  26
+
+Five-fold cross-validation summary:
+                        log_loss_mean  log_loss_sd  auc_mean  auc_sd  accuracy_mean  f1_mean  precision_mean  recall_mean
+model
+quadratic_interactions         0.5310       0.0472    0.8177  0.0358         0.7367   0.7230          0.7205       0.7264
+interactions                   0.5363       0.0346    0.8068  0.0402         0.7300   0.7074          0.7268       0.6909
+linear                         0.6319       0.0162    0.7029  0.0316         0.6067   0.5767          0.5884       0.5709
+quadratic                      0.6334       0.0300    0.7007  0.0400         0.6200   0.6279          0.5913       0.6766
+
+Best model by mean CV log-loss: quadratic_interactions
+
+Interpretation guide:
+If nonlinear models reduce validation/CV log-loss and increase AUC/F1 relative to the linear model, that is evidence that a purely linear boundary is not sufficient. If improvements are tiny or unstable across folds, the simpler linear model may be preferable.

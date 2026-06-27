@@ -1,0 +1,11 @@
+﻿CURRENT TWO-KNOT MODEL VS REPEATED-CV ONE-KNOT MODEL
+
+Mean paired MSE difference (two minus one): 0.019855
+95% CI for paired difference: [-0.103574, 0.143283]
+Paired t-test p-value: 0.724341
+
+Interpretation:
+A positive difference favors one knot. The difference is practically tiny,
+and the confidence interval includes zero. Repeated CV therefore does not
+provide convincing evidence that one knot is better than the current
+two-knot model.

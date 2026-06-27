@@ -1,7 +1,0 @@
-The training data contain 300 observations with three continuous predictors and a nearly balanced binary response: 158 zeros and 142 ones. The main data structure is nonlinear. Class 1 has higher x1 values than class 0, while x2 and x3 have weak marginal relationships with y. Exploration and validation showed that x2 and x3 are useful mainly through their product, so a purely linear boundary is too simple.
-
-I compared two classification methods using a validation split within the training data. The selected logistic formula is: logit[P(y=1)] = b0 + b1*x1 + b2*x1^2 + b3*x2*x3. This non-hierarchical model was chosen because it gave the lowest validation log-loss among the logistic candidates. The second method was QDA, chosen because it allows class-specific covariance matrices and therefore naturally creates curved decision boundaries for continuous predictors.
-
-Logistic regression had accuracy 0.767, log-loss 0.502, AUC 0.836, TN=36, FP=11, FN=10, TP=33. QDA had accuracy 0.767, log-loss 0.512, AUC 0.848, TN=36, FP=11, FN=10, TP=33.
-
-QDA had slightly higher AUC, suggesting strong ranking ability from its quadratic boundary. Logistic regression had better log-loss, which is most important for probability prediction.

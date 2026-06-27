@@ -1,0 +1,22 @@
+﻿trees SUMMARY - TREE-BASED METHODS
+
+Data
+The analysis uses the original 300-row training set, 200-row test set, 12 predictors.Training distressed-sale prevalence is 47/300 = 15.667%.
+
+Task 1 - Scratch CART regression
+The tree uses greedy midpoint splits that maximize SSE reduction and predicts the node mean in each leaf. Manual shuffled five-fold CV over depths 2-10 selected depth 6 (MSE 2311.325). The required final tree has depth 3 and min_samples_leaf=5; its 200 test predictions match the permitted sklearn depth-3 tree to numerical precision.
+
+Task 2 - Scratch random forest
+The final model averages 2,000 scratch CART trees using bootstrap samples of 300 rows, mtry=4 per split, max_depth=8, and min_samples_leaf=1. Repeated-CV MSE was 1484.850 (RMSE 38.534). Importance is normalized equal-tree Mean Decrease in Impurity.
+
+Task 3 - XGBoost regression
+The selected model uses 386 trees, learning_rate=0.05, max_depth=1, and regularized 0.85 row/feature subsampling. Repeated-CV MSE was 1362.697 (RMSE 36.915). Importance is normalized total gain.
+
+Task 4 - Random-forest classification
+Selection minimized repeated stratified validation log loss. The 2,000-tree forest uses depth 5, mtry=6, and log-loss splits. The declared imbalance method is resampling: fold-local random oversampling to a 0.20 minority/majority ratio. Mean log loss was 0.370461.
+
+Task 5 - XGBoost classification
+The selected 122-tree model uses learning_rate=0.03, depth 3, scale_pos_weight=1.5, and eight-fold OOF sigmoid calibration. Mean log loss was 0.381670.
+
+Validation
+Resampling, early stopping, and calibration were restricted to training folds. Classification models were selected by probability cross-entropy, not threshold accuracy.

@@ -1,40 +1,27 @@
-# Portfolio
+﻿# Portfolio
 
-This repository contains a curated Statistical Learning portfolio under
-`assignments/`. It includes six assignment projects with final slides,
-reproducible code, submitted result artifacts, relevant train/test data,
-experiment outputs, tests, support notes, and project-level README files. The
-structure is intentionally organized so each assignment can be reviewed on its
-own while keeping supporting work inside subfolders.
+This repository presents a compact analytics portfolio with production-minded
+project organization. High-signal prediction projects live in `Main/`; smaller
+supporting analyses live in `secondary/`.
 
-## Contents
+## Main
 
-- `assignments/01-regression` - linear regression deliverables and data.
-- `assignments/02-classification` - logistic classification and model-selection
-  experiments.
-- `assignments/03-resampling` - bootstrap, simulation, and resampling analysis.
-- `assignments/04-regularization` - LASSO/model-selection artifacts and
-  error-decomposition checks.
-- `assignments/05-splines` - nonlinear modeling with splines, validation
-  benchmarks, and Monte Carlo checks.
-- `assignments/06-trees` - tree-based modeling with CART, random forests,
-  XGBoost, classification comparisons, and validation artifacts.
+- `Main/energy-demand-prediction` - predicts energy consumption and high-demand
+  alert probability from temperature, humidity, and weekend indicators.
+- `Main/real-estate-price-risk-prediction` - predicts real-estate sale price and
+  distressed-sale probability with validation, calibration, and feature
+  importance checks.
 
-## Assignment 5 - Splines
+## Secondary
 
-Assignment 5 focuses on flexible nonlinear modeling with spline-based
-regression. The main folder includes the final submitted slides, result JSON,
-summary, train/test data, and reproducible modeling code. Its `experiments/`
-folder expands the analysis with exploratory plots, fixed-knot comparisons,
-high-knot sensitivity checks, nested cross-validation benchmarks, out-of-fold
-diagnostics, and pseudo-DGP Monte Carlo experiments used to test whether the
-chosen spline configuration was stable and defensible.
+- `secondary/linear-signal-forecasting` - interpretable regression with
+  interaction effects.
+- `secondary/probability-risk-scoring` - nonlinear binary probability scoring
+  with validation experiments.
+- `secondary/portfolio-allocation-bootstrap` - minimum-variance allocation and
+  bootstrap uncertainty analysis.
+- `secondary/regularized-response-prediction` - regularized response prediction
+  with coefficient stability checks.
 
-## Assignment 6 - Trees
-
-Assignment 6 is the largest project in the repository. It covers tree-based
-modeling for real estate price prediction and distressed-sale probability
-estimation, including CART, random forests, XGBoost regression, XGBoost
-classification, logistic-vs-tree classifier comparisons, data-cleaning checks,
-class-imbalance experiments, calibration diagnostics, feature-importance
-outputs, and repeated/nested cross-validation artifacts.
+Each project keeps final artifacts at the top level, with experiments and
+supporting validation work kept in subfolders.

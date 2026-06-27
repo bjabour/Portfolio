@@ -1,0 +1,20 @@
+﻿{
+  "regression": {
+    "recommended_pipeline": "current_solution",
+    "best_fixed_candidate": "spline_equal_m2",
+    "best_fixed_placement": "equal",
+    "best_fixed_n_internal_knots": 2,
+    "current_mean_primary_score": 20.0815799258043,
+    "nested_minimum_mean_primary_score": 20.375936641979152,
+    "nested_one_se_mean_primary_score": 21.35408125214833
+  },
+  "classification": {
+    "recommended_pipeline": "current_solution",
+    "best_fixed_candidate": "spline_quantile_m0",
+    "best_fixed_placement": "quantile",
+    "best_fixed_n_internal_knots": 0,
+    "current_mean_primary_score": 0.4492245308850958,
+    "nested_minimum_mean_primary_score": 0.4564662673896932,
+    "nested_one_se_mean_primary_score": 0.4492245308850958
+  }
+}

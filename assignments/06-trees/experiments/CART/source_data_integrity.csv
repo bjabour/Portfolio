@@ -1,3 +1,0 @@
-file,path,hash_before,hash_after,hash_unchanged,rows,lot_area_max
-train,C:\EDU\StatisticalLearning\assignments\6\trees_train.csv,85a5ad0b994e5b4202bd22a7e8b7d8d35a00338d64d85312544b65921cf8a242,85a5ad0b994e5b4202bd22a7e8b7d8d35a00338d64d85312544b65921cf8a242,True,300,215245.0
-test,C:\EDU\StatisticalLearning\assignments\6\trees_test.csv,45aa6f83073380302b8a7a7554bc13beb2774d07d34cdb3dfd30d0ef666b6580,45aa6f83073380302b8a7a7554bc13beb2774d07d34cdb3dfd30d0ef666b6580,True,200,159000.0

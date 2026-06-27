@@ -1,0 +1,2 @@
+﻿xgboost==3.2.0
+imbalanced-learn==0.14.2
