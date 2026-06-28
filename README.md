@@ -1,8 +1,6 @@
-﻿# Portfolio
+# Portfolio
 
-This repository presents a compact analytics portfolio with production-minded
-project organization. High-signal prediction projects live in `Main/`; smaller
-supporting analyses live in `secondary/`.
+This repository presents a compact analytics portfolio . High-signal prediction projects live in `Main/`; smaller personal analyses backups live in `secondary/`.
 
 ## Main
 
