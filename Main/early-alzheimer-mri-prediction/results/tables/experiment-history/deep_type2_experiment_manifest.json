@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "elapsed_seconds": 156.27076090004994,
+  "selection_metric": "lowest validation Type II error, then validation macro-F1/balanced accuracy/specificity",
+  "positive_definition": "dementia = Very_Mild_Demented or Mild_Demented",
+  "type2_definition": "actual dementia predicted as Non_Demented",
+  "split_counts": {
+    "train": 4435,
+    "val": 950,
+    "test": 951
+  },
+  "packages": {
+    "numpy": "2.4.3",
+    "pandas": "3.0.1",
+    "pillow": "12.1.1",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8",
+    "seaborn": "0.13.2",
+    "joblib": "1.5.3"
+  },
+  "note": "PyTorch/TensorFlow were not installed locally; these experiments use scikit-learn MLP neural networks."
+}

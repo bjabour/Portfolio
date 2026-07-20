@@ -1,0 +1,4 @@
+,pred_Non_Demented,pred_Very_Mild_Demented,pred_Mild_Demented
+actual_Non_Demented,420,49,11
+actual_Very_Mild_Demented,27,305,4
+actual_Mild_Demented,1,5,128

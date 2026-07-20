@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Early Alzheimer Prediction</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>Early Alzheimer Prediction</span>
+      </div>
+      <nav aria-label="Slide navigation">
+        <button class="nav-link active" data-slide="0">Task</button>
+        <button class="nav-link" data-slide="1">Brain</button>
+        <button class="nav-link" data-slide="2">Models</button>
+        <button class="nav-link" data-slide="3">Areas</button>
+        <button class="nav-link" data-slide="4">Thresholds</button>
+        <button class="nav-link" data-slide="5">Decision</button>
+      </nav>
+      <div class="progress" aria-hidden="true">
+        <span id="progressFill"></span>
+      </div>
+    </header>
+
+    <main class="deck" id="deck">
+      <section class="slide active" id="slide-task" aria-labelledby="task-title">
+        <div class="slide-grid task-grid">
+          <div class="copy-block">
+            <p class="eyebrow">Validated screening workflow</p>
+            <h1 id="task-title">Early Alzheimer prediction from brain MRI</h1>
+            <p class="lead">
+              We compared deterministic and CNN-based paths, then selected a two-stage MLP
+              because it produced the lowest missed-dementia rate while keeping alpha in
+              the single digits at the recommended threshold.
+            </p>
+
+            <div class="flow hover-lift" tabindex="0">
+              <span>MRI image</span>
+              <span>pixels + regions</span>
+              <span>feature vectors</span>
+              <span>PCA</span>
+              <span>two-stage MLP</span>
+            </div>
+
+            <aside class="insight">
+              <strong>Non-specialist insight</strong>
+              The model does not diagnose disease. It compares numerical image patterns
+              that may reflect tissue loss, fluid-space change, and texture differences.
+            </aside>
+          </div>
+
+          <div class="image-triptych">
+            <figure class="mri-card hover-lift">
+              <img src="assets/mri_non_demented.jpg" alt="Non-demented MRI example" />
+              <figcaption>Non Demented</figcaption>
+            </figure>
+            <figure class="mri-card hover-lift">
+              <img src="assets/mri_very_mild.jpg" alt="Very mild demented MRI example" />
+              <figcaption>Very Mild</figcaption>
+            </figure>
+            <figure class="mri-card hover-lift">
+              <img src="assets/mri_mild.jpg" alt="Mild demented MRI example" />
+              <figcaption>Mild</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-brain" aria-labelledby="brain-title">
+        <div class="slide-grid anatomy-grid">
+          <div class="brain-visuals">
+            <div class="anatomy-board hover-lift">
+              <div class="mri-map" aria-label="Axial brain MRI example with interactive anatomical regions">
+                <img class="region-mri" src="assets/mri_non_demented.jpg" alt="Axial brain MRI example from the project dataset" />
+                <span class="region-marker region-ventricles is-active" data-region="ventricles" aria-hidden="true">
+                  <span>Ventricles / CSF</span>
+                </span>
+                <span class="region-marker region-periventricular" data-region="periventricular" aria-hidden="true">
+                  <span>Periventricular white matter</span>
+                </span>
+                <span class="region-marker region-cortex" data-region="cortex" aria-hidden="true">
+                  <span>Cortical rim / sulci</span>
+                </span>
+                <span class="region-marker region-texture" data-region="texture" aria-hidden="true">
+                  <span>Whole-slice texture</span>
+                </span>
+              </div>
+            </div>
+            <figure class="alz-example hover-lift">
+              <div class="dataset-comparison" aria-label="Representative non-demented and mild-demented dataset images">
+                <span><img src="assets/mri_non_demented.jpg" alt="Representative non-demented dataset MRI" />Non-demented</span>
+                <span><img src="assets/mri_mild.jpg" alt="Representative mild-demented dataset MRI" />Mild</span>
+              </div>
+              <figcaption><strong>Dataset context:</strong> these are representative class examples, not matched scans of one patient. Hippocampal atrophy needs lower axial, coronal, or volumetric assessment.</figcaption>
+            </figure>
+          </div>
+
+          <div class="copy-block anatomy-copy">
+            <p class="eyebrow">Domain knowledge guides features</p>
+            <h2 id="brain-title">Match each feature to anatomy the slice actually shows</h2>
+            <p class="lead">
+              Hover or select an indicator to locate its image region. These are numerical
+              proxies, not clinical segmentations.
+            </p>
+            <div class="indicator-list">
+              <button class="indicator hover-lift is-active" type="button" data-region="ventricles" aria-pressed="true">
+                <strong>Ventricles / CSF</strong>
+                <span>Center: dark butterfly-shaped fluid spaces. Enlargement can proxy surrounding tissue loss.</span>
+              </button>
+              <button class="indicator hover-lift" type="button" data-region="periventricular" aria-pressed="false">
+                <strong>Periventricular white matter</strong>
+                <span>Around the ventricles: intensity changes may indicate vascular or mixed pathology, but depend on MRI sequence and are not Alzheimer-specific.</span>
+              </button>
+              <button class="indicator hover-lift" type="button" data-region="cortex" aria-pressed="false">
+                <strong>Cortical rim / sulci</strong>
+                <span>Outer rim and grooves: thinner cortex or wider sulci can reflect generalized atrophy.</span>
+              </button>
+              <button class="indicator hover-lift" type="button" data-region="texture" aria-pressed="false">
+                <strong>Whole-slice texture / asymmetry</strong>
+                <span>Across the image: PCA and regional summaries retain distributed intensity, edge, and left-right differences.</span>
+              </button>
+            </div>
+            <p class="slice-caveat"><strong>Important:</strong> the hippocampi and medial temporal lobes sit lower and more medial. They cannot be identified reliably in this axial example.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-model" aria-labelledby="model-title">
+        <div class="model-heading">
+          <div>
+            <p class="eyebrow">Recommended model</p>
+            <h2 id="model-title">Two-stage MLP: minimize beta while keeping alpha low</h2>
+          </div>
+          <p class="lead">The model first detects dementia, then assigns severity. Threshold 0.50 gives the lowest beta among the operating points with single-digit test alpha.</p>
+        </div>
+
+        <div class="mlp-overview">
+          <article class="mlp-spec-card hover-lift">
+            <div class="mlp-spec-title"><span>Selected threshold</span><strong>0.50</strong></div>
+            <div class="mlp-process" aria-label="Two-stage MLP process">
+              <span>MRI</span><span>1,110 deterministic features</span><span>120 PCA values</span><span>128 -> 64 dementia MLP</span><span>96 -> 48 severity MLP</span>
+            </div>
+            <p>Stage 1 estimates dementia probability from pixel, texture, asymmetry, and coarse region summaries. Stage 2 separates very mild from mild disease only after dementia is predicted.</p>
+            <div class="mlp-key-metrics">
+              <div><span>Test sensitivity</span><strong>96.82%</strong></div>
+              <div><span>Beta</span><strong>3.18%</strong></div>
+              <div><span>Alpha</span><strong>7.71%</strong></div>
+            </div>
+          </article>
+
+          <div class="model-diagnostic-grid">
+            <figure class="lda-card hover-lift">
+              <img src="assets/lda_validation_projection.png" alt="Validation MRI features projected onto two linear discriminant analysis directions" />
+              <figcaption><strong>LDA view.</strong> Class overlap limits a straight three-class boundary to 56.1% balanced accuracy.</figcaption>
+            </figure>
+            <figure class="lda-card hover-lift">
+              <img src="assets/mlp_roc_auc.png" alt="Validation and test ROC curves for the two-stage MLP dementia detector" />
+              <figcaption><strong>ROC/AUC.</strong> Validation AUC is 0.993; the test audit is 0.989. Dots mark threshold 0.50.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <aside class="model-caveat"><strong>Why the MLP is retained:</strong> LDA shows substantial linear overlap, while the MLP can learn nonlinear combinations of distributed MRI features. AUC measures ranking quality; alpha and beta still depend on the selected threshold.</aside>
+      </section>
+
+      <section class="slide" id="slide-regions" aria-labelledby="regions-title">
+        <div class="regional-heading">
+          <div>
+            <p class="eyebrow">Exploratory model interpretation</p>
+            <h2 id="regions-title">The MLP relies most on broad cortical information</h2>
+          </div>
+          <p class="lead">One coarse area at a time was replaced by its training-mean image patch. A larger ROC-AUC drop means the fitted MLP lost more useful signal.</p>
+        </div>
+
+        <div class="regional-layout">
+          <figure class="regional-plot hover-lift">
+            <img src="assets/mlp_regional_occlusion.png" alt="Validation ROC-AUC decrease after occluding five coarse brain MRI regions" />
+            <figcaption>Paired bootstrap intervals use the same 950 validation images. All five areas produced a positive performance drop.</figcaption>
+          </figure>
+
+          <div class="region-summary">
+            <article class="effect-card strongest hover-lift">
+              <span>Strongest model reliance</span>
+              <h3>Upper and lower cortical proxies</h3>
+              <strong>9.3-9.7 AUC points lost</strong>
+              <p>Broad outer-brain texture and atrophy patterns produced the largest measured performance change.</p>
+            </article>
+            <article class="effect-card hover-lift">
+              <span>Moderate model reliance</span>
+              <h3>Central / ventricle zone</h3>
+              <strong>5.7 AUC points lost</strong>
+              <p>Central fluid-space size and surrounding intensity added useful, but smaller, discrimination.</p>
+            </article>
+            <article class="effect-card hover-lift">
+              <span>Smaller model reliance</span>
+              <h3>Lower-lateral proxies</h3>
+              <strong>2.6-3.1 AUC points lost</strong>
+              <p>Both sides helped, but less than the broad cortical and central regions in this slice-level model.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="regional-caveat"><strong>Interpretation boundary:</strong> these rectangles overlap and are not anatomical segmentations. Occlusion can create artificial images, so the ranking suggests where this MLP looks; it does not prove disease location, causality, or hippocampal involvement.</aside>
+      </section>
+
+      <section class="slide" id="slide-findings" aria-labelledby="findings-title">
+        <div class="threshold-heading">
+          <div>
+            <p class="eyebrow">MLP threshold comparison</p>
+            <h2 id="findings-title">Zero misses is not useful when alpha reaches 68%</h2>
+          </div>
+          <p class="lead">Beta is the primary objective, but alpha still prevents the model from flagging nearly everyone. The middle point preserves most sensitivity without that failure.</p>
+        </div>
+        <div class="threshold-layout">
+          <figure class="threshold-plot hover-lift">
+            <img src="assets/mlp_operating_points.png" alt="Three two-stage MLP operating points comparing alpha and beta on test" />
+            <figcaption>Lower-left is better. Thresholds were chosen on validation; the chart shows their observed test behavior.</figcaption>
+          </figure>
+
+          <div class="operating-card-stack">
+            <article class="operating-card rejected hover-lift">
+              <div><span>Rejected extreme</span><h3>Maximum sensitivity</h3></div>
+              <div class="operating-metrics"><strong>Beta 0.00%</strong><span>Alpha 68.13%</span></div>
+              <p>Zero misses is achieved by flagging 327 of 480 non-demented images.</p>
+            </article>
+            <article class="operating-card recommended hover-lift">
+              <div><span>Recommended</span><h3>Threshold 0.50</h3></div>
+              <div class="operating-metrics"><strong>Beta 3.18%</strong><span>Alpha 7.71%</span></div>
+              <p>Only 15 of 471 dementia images are missed while alpha remains single-digit.</p>
+            </article>
+            <article class="operating-card hover-lift">
+              <div><span>Lower-alpha option</span><h3>Threshold 0.748</h3></div>
+              <div class="operating-metrics"><strong>Beta 4.25%</strong><span>Alpha 5.83%</span></div>
+              <p>Nine fewer false alarms, but five additional missed dementia images.</p>
+            </article>
+          </div>
+        </div>
+        <aside class="comparison-insight">
+          <strong>Selection rule:</strong> prioritize the lowest beta, reject operating points with extreme alpha, then choose the lower-alpha point only when its added misses are acceptable.
+        </aside>
+      </section>
+
+      <section class="slide" id="slide-type1" aria-labelledby="type1-title">
+        <div class="decision-heading">
+          <div class="decision-title-block">
+            <p class="eyebrow">Recommended operating point</p>
+            <h2 id="type1-title">Use the two-stage MLP at threshold 0.50</h2>
+          </div>
+          <p class="lead">The primary goal is beta reduction. Alpha is monitored as a secondary cost rather than enforced as a hard target.</p>
+        </div>
+
+        <div class="policy-grid">
+          <article class="policy-panel preferred hover-lift">
+            <div class="policy-title"><span>Recommended</span><h3>Threshold 0.50</h3></div>
+            <div class="policy-metrics">
+              <div><span>Sensitivity</span><strong>96.82%</strong></div>
+              <div><span>Beta</span><strong>3.18%</strong></div>
+              <div><span>Alpha</span><strong>7.71%</strong></div>
+            </div>
+            <div class="mini-matrix" aria-label="Recommended MLP threshold test confusion matrix">
+              <span></span><span>Pred. non</span><span>Pred. dementia</span>
+              <span>Actual non</span><strong class="correct">443</strong><strong class="false-alarm">37</strong>
+              <span>Actual dementia</span><strong class="missed">15</strong><strong class="correct">456</strong>
+            </div>
+          </article>
+
+          <article class="policy-panel hover-lift">
+            <div class="policy-title"><span>Lower-alpha option</span><h3>Threshold 0.748</h3></div>
+            <div class="policy-metrics">
+              <div><span>Sensitivity</span><strong>95.75%</strong></div>
+              <div><span>Beta</span><strong>4.25%</strong></div>
+              <div><span>Alpha</span><strong>5.83%</strong></div>
+            </div>
+            <div class="mini-matrix" aria-label="Lower-alpha MLP threshold test confusion matrix">
+              <span></span><span>Pred. non</span><span>Pred. dementia</span>
+              <span>Actual non</span><strong class="correct">452</strong><strong class="false-alarm">28</strong>
+              <span>Actual dementia</span><strong class="missed">20</strong><strong class="correct">451</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="decision-footer">
+          <aside class="decision-insight"><strong>Reviewer takeaway</strong> Lowering alpha from 7.71% to 5.83% removes 9 false alarms but adds 5 missed dementia cases. Because beta is the priority, threshold 0.50 is recommended.</aside>
+          <p class="validation-note"><strong>Validation note:</strong> these are development estimates because test results were observed during iteration. Confirm with nested cross-validation or a new untouched holdout before a final claim.</p>
+        </div>
+
+        <section class="decision-plots" aria-labelledby="diagnostics-title">
+          <div class="plot-section-heading">
+            <p class="eyebrow">Threshold diagnostics</p>
+            <h3 id="diagnostics-title">The selected threshold keeps beta low without extreme alpha</h3>
+          </div>
+          <div class="evidence-grid">
+            <figure class="evidence-plot hover-lift">
+              <img src="assets/mlp_operating_points.png" alt="Three MLP operating points comparing alpha and beta" />
+              <figcaption><strong>Operating-point tradeoff.</strong> Zero beta requires unusably high alpha. Threshold 0.50 retains most sensitivity with single-digit alpha.</figcaption>
+            </figure>
+            <figure class="evidence-plot hover-lift">
+              <img src="assets/mlp_test_error_counts.png" alt="Test false alarms and missed dementia counts for two MLP thresholds" />
+              <figcaption><strong>Observed test errors.</strong> The lower-alpha threshold saves 9 false alarms but creates 5 additional misses.</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="controls" aria-hidden="true">
+      <button id="prevBtn" aria-label="Previous slide">Back</button>
+      <span id="slideCounter">1 / 6</span>
+      <button id="nextBtn" aria-label="Next slide">Next</button>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

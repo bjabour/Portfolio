@@ -1,0 +1,23 @@
+{
+  "seed": 42,
+  "elapsed_seconds": 328.50186380000014,
+  "constraints": {
+    "no_type1_limit": null,
+    "type1_le_0_05": 0.05,
+    "type1_le_0_025": 0.025
+  },
+  "selection_rule": "Within each model and constraint: choose validation threshold with minimum validation Type II error; ties prefer macro-F1, balanced accuracy, then specificity.",
+  "positive_definition": "dementia = Very_Mild_Demented or Mild_Demented",
+  "type1_definition": "actual Non_Demented predicted as dementia",
+  "type2_definition": "actual dementia predicted as Non_Demented",
+  "cnn_available": true,
+  "packages": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "pillow": "12.2.0",
+    "scikit-learn": "1.9.0",
+    "matplotlib": "3.11.1",
+    "seaborn": "0.13.2",
+    "joblib": "1.5.3"
+  }
+}

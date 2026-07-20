@@ -1,4 +1,0 @@
-The significant covariates are x1, x3 and x5, also the interaction x3*x4 is.
-I centered x3 and x4 before forming their interaction term and then fit a hierarchical interaction model with x1, x3_c, x4_c, x5, and x3_c*x4_c.
-The interaction term remained significant after centering, which supports the conclusion that the effect of x3 depends on x4.
-I kept x4_c in the final model even though its standalone main effect is weak, because I wanted to preserve hierarchy once the interaction term was included. This gives a more interpretable specification while still capturing the interaction structure in the data.

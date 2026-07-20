@@ -1,0 +1,5 @@
+model,selected,test_evaluated,val_accuracy,val_balanced_accuracy,val_macro_f1,val_macro_precision,val_macro_recall,test_accuracy,test_balanced_accuracy,test_macro_f1,test_macro_precision,test_macro_recall
+null_most_frequent,False,False,0.505263,0.333333,0.223776,0.168421,0.333333,,,,,
+logistic_balanced,False,False,0.6,0.605718,0.569283,0.565223,0.605718,,,,,
+linear_svm_balanced,False,False,0.618947,0.585057,0.570078,0.564407,0.585057,,,,,
+rbf_svm_balanced,True,True,0.897895,0.912654,0.902353,0.894062,0.912654,0.869611,0.883642,0.870939,0.860893,0.883642

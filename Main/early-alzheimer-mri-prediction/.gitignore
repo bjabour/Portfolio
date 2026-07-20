@@ -1,0 +1,26 @@
+# Local MRI data are intentionally not distributed.
+/train/
+/val/
+/test/
+/Alzheimer_Split/
+/Alzheimer_Split -with Augment/
+
+# Generated model artifacts and large feature caches.
+/solutions/
+*.joblib
+*.npz
+*.pt
+*.pth
+
+# Local environments and caches.
+/.venv*/
+/.matplotlib/
+/.idea/
+/.obsidian/
+__pycache__/
+*.py[cod]
+
+# Presentation build and visual verification output.
+/presentation/dist/
+/presentation/verify_*.png
+/presentation/slide*_verify.png

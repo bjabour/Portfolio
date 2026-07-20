@@ -1,25 +1,13 @@
 # Portfolio
 
-This repository presents a compact analytics portfolio . High-signal prediction projects live in `Main/`; smaller personal analyses backups live in `secondary/`.
+Selected end-to-end statistical learning and machine learning projects. Each project includes its implementation, validation evidence, results, and supporting documentation.
 
-## Main
+## Projects
 
-- `Main/energy-demand-prediction` - predicts energy consumption and high-demand
-  alert probability from temperature, humidity, and weekend indicators.
-- `Main/real-estate-price-risk-prediction` - predicts real-estate sale price and
-  distressed-sale probability with validation, calibration, and feature
-  importance checks.
+- [Early Alzheimer MRI Prediction](Main/early-alzheimer-mri-prediction/) - transforms 2D brain MRI images into deterministic features and compares MLP, SVM, and CNN approaches. The selected two-stage MLP prioritizes a low missed-dementia rate and documents the false-positive tradeoff.
+- [Energy Demand Prediction](Main/energy-demand-prediction/) - predicts energy consumption and high-demand alert probability from temperature, humidity, and weekend indicators.
+- [Real-Estate Price and Risk Prediction](Main/real-estate-price-risk-prediction/) - predicts sale price and distressed-sale probability with validation, calibration, and feature-importance checks.
 
-## Secondary
+## Repository Structure
 
-- `secondary/linear-signal-forecasting` - interpretable regression with
-  interaction effects.
-- `secondary/probability-risk-scoring` - nonlinear binary probability scoring
-  with validation experiments.
-- `secondary/portfolio-allocation-bootstrap` - minimum-variance allocation and
-  bootstrap uncertainty analysis.
-- `secondary/regularized-response-prediction` - regularized response prediction
-  with coefficient stability checks.
-
-Each project keeps final artifacts at the top level, with experiments and
-supporting validation work kept in subfolders.
+All portfolio projects live under `Main/`. Each project keeps its primary deliverables at the top level, with experiments, results, and validation material organized in subfolders.

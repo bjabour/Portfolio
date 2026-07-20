@@ -1,0 +1,4 @@
+,value
+lda_validation_balanced_accuracy,0.5608016465292585
+mlp_test_roc_auc,0.9892162066525123
+mlp_validation_roc_auc,0.9926462765957448
