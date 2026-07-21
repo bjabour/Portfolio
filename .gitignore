@@ -209,6 +209,52 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Early Alzheimer MRI project: local data, generated models, and caches.
+/GIT_RESTRUCTURING_COMMANDS.md
+/early-alzheimer-mri-prediction/data/*
+!/early-alzheimer-mri-prediction/data/README.md
+/early-alzheimer-mri-prediction/results/experiments/
+/early-alzheimer-mri-prediction/results/presentation-build/
+/early-alzheimer-mri-prediction/config/local/
+/early-alzheimer-mri-prediction/config/packages/
+/early-alzheimer-mri-prediction/.venv*/
+/early-alzheimer-mri-prediction/.matplotlib/
+/early-alzheimer-mri-prediction/.idea/
+/early-alzheimer-mri-prediction/.obsidian/
+/early-alzheimer-mri-prediction/presentation/verify_*.png
+/early-alzheimer-mri-prediction/presentation/slide*_verify.png
+*.joblib
+*.npz
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.npy
+*.onnx
+*.h5
+*.keras
+*.ckpt
+*.safetensors
+
+# Node dependency and package-manager caches.
+node_modules/
+.npm/
+.yarn/
+.pnpm-store/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating-system and editor metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.tmp
+*~
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

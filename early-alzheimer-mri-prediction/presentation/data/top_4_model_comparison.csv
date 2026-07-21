@@ -1,0 +1,13 @@
+model,model_type,operating_point,test_type1_error,test_type2_error,test_sensitivity,test_specificity,test_balanced_accuracy,test_cap_met
+Two-stage MLP,PCA/domain features plus two-stage MLP,No Type I limit,0.681250,0.000000,1.000000,0.318750,0.743265,N/A
+Two-stage MLP,PCA/domain features plus two-stage MLP,Type I <= 5%,0.077083,0.031847,0.968153,0.922917,0.930765,No
+Two-stage MLP,PCA/domain features plus two-stage MLP,Type I <= 2.5%,0.058333,0.042463,0.957537,0.941667,0.929101,No
+Small weighted CNN,Three-class CNN trained from scratch,No Type I limit,0.916667,0.004246,0.995754,0.083333,0.440013,N/A
+Small weighted CNN,Three-class CNN trained from scratch,Type I <= 5%,0.037500,0.881104,0.118896,0.962500,0.394907,Yes
+Small weighted CNN,Three-class CNN trained from scratch,Type I <= 2.5%,0.025000,0.900212,0.099788,0.975000,0.386728,Yes
+Pretrained CNN hybrid (nominal),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM,No Type I limit,0.277083,0.014862,0.985138,0.722917,0.854027,N/A
+Pretrained CNN hybrid (nominal),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM,Type I <= 5%,0.066667,0.059448,0.940552,0.933333,0.936943,No
+Pretrained CNN hybrid (nominal),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM,Type I <= 2.5%,0.033333,0.108280,0.891720,0.966667,0.929193,No
+Pretrained CNN hybrid (99% guard),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM with guarded validation thresholds,No Type I limit,0.277083,0.014862,0.985138,0.722917,0.854027,N/A
+Pretrained CNN hybrid (99% guard),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM with guarded validation thresholds,Type I <= 5%,0.047917,0.097665,0.902335,0.952083,0.927209,Yes
+Pretrained CNN hybrid (99% guard),Frozen ResNet-18 or MobileNetV3 spatial embedding plus PCA RBF-SVM with guarded validation thresholds,Type I <= 2.5%,0.018750,0.182590,0.817410,0.981250,0.899330,Yes

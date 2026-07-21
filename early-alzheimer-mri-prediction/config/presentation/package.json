@@ -1,0 +1,9 @@
+{
+  "name": "alz-brain-mri-plan-d-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ../../scripts/presentation/build.mjs"
+  }
+}
